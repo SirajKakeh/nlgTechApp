@@ -9,6 +9,7 @@ import { FirebaseApp } from 'angularfire2';
 import { AuthProvider } from '../../providers/auth/auth';
 import { ProfilePage } from '../profile/profile';
 import { AttendeesPage } from '../attendees/attendees';
+import { AgendaPage } from '../agenda/agenda';
 
 
 @Component({
@@ -40,5 +41,15 @@ export class SignupPage {
   goToSignin() {
     this.navCtrl.push(SigninPage)
   }
+   
+  ionViewDidLoad() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.navCtrl.setRoot(AgendaPage)
+             
+      }
+    })     
+  }
+
 
 }

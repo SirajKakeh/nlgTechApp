@@ -6,6 +6,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { ResetPasswordPage } from '../reset-password/reset-password';
 import { AuthProvider } from '../../providers/auth/auth';
 import { AttendeesPage } from '../attendees/attendees';
+import { AgendaPage } from '../agenda/agenda';
+import { SignupPage } from '../signup/signup';
 
 @Component({
   selector: 'page-signin',
@@ -27,12 +29,16 @@ export class SigninPage {
   }
   
   signin() {
-    this.authProvider.login(this.email, this.password).then(() => this.navCtrl.setRoot(AttendeesPage)).catch(function(error) {
+    this.authProvider.login(this.email, this.password).then(() => this.navCtrl.setRoot(AgendaPage)).catch(function(error) {
       console.error(error);
     });
   }
 
   goToResetPassword(): void {
     this.navCtrl.push(ResetPasswordPage);
+  }
+
+  goToSignup(){
+    this.navCtrl.push(SignupPage);
   }
 }
