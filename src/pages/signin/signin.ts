@@ -7,6 +7,7 @@ import { ResetPasswordPage } from '../reset-password/reset-password';
 import { AuthProvider } from '../../providers/auth/auth';
 import { AttendeesPage } from '../attendees/attendees';
 import { AgendaPage } from '../agenda/agenda';
+import { SignupPage } from '../signup/signup';
 
 @Component({
   selector: 'page-signin',
@@ -38,4 +39,7 @@ export class SigninPage {
     this.navCtrl.push(ResetPasswordPage);
   }
 
+  goToSignup(){
+    this.navCtrl.push(SignupPage);
+  }
 }

@@ -12,6 +12,7 @@ import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/dat
 
 import {MapPage} from '../pages/map/map'
 import { MyApp } from './app.component';
+import { SplashScreenPage } from '../pages/splash-screen/splash-screen';
 import { SignupPage } from "../pages/signup/signup";
 import { SigninPage } from "../pages/signin/signin";
 import { AgendaPage } from '../pages/agenda/agenda';
@@ -44,6 +45,7 @@ var firebaseConfig = {
 @NgModule({
   declarations: [
     MyApp,
+    SplashScreenPage,
     SignupPage,
     SigninPage,
     MapPage,
@@ -68,6 +70,7 @@ var firebaseConfig = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    SplashScreenPage,
     SignupPage,
     SigninPage,
     MapPage,

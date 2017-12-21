@@ -7,6 +7,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 
 import {MapPage} from '../pages/map/map';
+import { SplashScreenPage } from '../pages/splash-screen/splash-screen';
 import { SignupPage } from '../pages/signup/signup';
 import { SigninPage } from '../pages/signin/signin';
 import { AgendaPage } from '../pages/agenda/agenda';
@@ -24,7 +25,7 @@ import { EditprofilePage } from '../pages/editprofile/editprofile';
   templateUrl: 'app.html'
 })
 
-export class MyApp {
+
   // rootPage:any =AgendaPage;
   rootPage:any = SignupPage ;
   @ViewChild(Nav) nav: Nav;

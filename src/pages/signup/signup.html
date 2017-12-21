@@ -4,23 +4,59 @@
 </ion-header>
 
 
-<ion-content padding>
-    <img src="http://static.tumblr.com/578c30623d74890c6a50c44686bb3e63/2m2kqbl/wXromxnb1/tumblr_static_a9cjz5t7hxc0w0w84oww0wcwk.png" style="display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 7em;
-    margin-top: 2em;"/>
-  <div style="color:#00bfbb; font-size: large; font-weight: bold;">Sign up</div>
-  <ion-list  no-lines>
-  <ion-item>
-    <ion-input type="text" placeholder="Email Address" [(ngModel)]="email"></ion-input>
-  </ion-item>
+<ion-content>
+    <ion-grid style="padding-top:100px;">
+        <ion-row>
+          <ion-col>
+              <img src="http://static.tumblr.com/578c30623d74890c6a50c44686bb3e63/2m2kqbl/wXromxnb1/tumblr_static_a9cjz5t7hxc0w0w84oww0wcwk.png" style="display: block;
+              margin: auto;"/>
+          </ion-col>
+        </ion-row>
+        <ion-row style="padding-top:50px;">
+            <ion-col col-1></ion-col>
+            <ion-col col-10>
+              <div style="color:#00bfbb; font-size: meduim; font-weight: bold;">Sign up</div>
+          </ion-col>
+          <ion-col col-1></ion-col>
+        </ion-row>
 
-  <ion-item>
-    <ion-input type="Password" placeholder="Password" [(ngModel)]="password"></ion-input>
-  </ion-item>
-  <button ion-button full (click)="signup()" style="background-color:#00bfbb">SignUp</button>
-  <br />
-  <a href="#" (click)="goToSignin()" style="color:#00bfbb">Signin</a>
-</ion-list>
+
+        <ion-row>
+            <ion-col col-1></ion-col>
+          <ion-col col-10>
+            
+              <ion-input type="email" style="border: 1px solid gray" placeholder="Email Address" [(ngModel)]="email"></ion-input>
+        
+         </ion-col>
+         <ion-col col-1></ion-col>
+      </ion-row>
+
+
+      <ion-row style="padding-top:10px;">
+        <ion-col col-1></ion-col>
+        <ion-col col-10> 
+          <ion-input type="Password" style="border: 1px solid gray" placeholder="Password" [(ngModel)]="password"></ion-input>
+        </ion-col>
+        <ion-col col-1></ion-col>
+      </ion-row> 
+
+
+      <ion-row style="padding-top:3px">
+          <ion-col col-1></ion-col>
+          <ion-col col-10> 
+              <button ion-button full (click)="signup()" style="background-color:#00bfbb">SignUp</button>
+          </ion-col>
+          <ion-col col-1></ion-col>
+        </ion-row> 
+
+        <ion-row style="padding-top:3px">
+            <ion-col col-1></ion-col>
+             <ion-col col-10>
+                <a href="#" (click)="goToSignin()" style="color:#00bfbb">Signin</a>
+             </ion-col>
+            <ion-col col-1></ion-col>
+        </ion-row>
+       
+  </ion-grid> 
 </ion-content>
+
