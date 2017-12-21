@@ -12,6 +12,9 @@ import {
  } from '@ionic-native/google-maps';
  import {Platform} from 'ionic-angular';
  import { IonicPage } from 'ionic-angular';
+ import firebase from 'firebase';
+ import { AngularFireDatabase } from 'angularfire2/database';
+ import { AngularFireAuth } from 'angularfire2/auth';
  
  
 declare var google;
@@ -20,6 +23,7 @@ declare var google;
  templateUrl: 'map.html',
 })
 export class MapPage {
+  wifiVal;
   @ViewChild('map') mapElement: ElementRef;
   map: GoogleMap;
   options : GeolocationOptions;
@@ -32,12 +36,24 @@ export class MapPage {
     private geolocation : Geolocation, 
     private googleMaps: GoogleMaps, 
     private platform: Platform, 
-    public navParams: NavParams) {
+    public navParams: NavParams,
+    public fireDB:AngularFireDatabase) {
+  }
+ 
+  ionViewDidLoad() {
+    // this.fireDB.list('/wifi').valueChanges().subscribe(res => {
+    //   this.wifiVal = res;
+    // });
+
   }
 
   ngAfterViewInit() {
     this.platform.ready().then(() => {
       this.loadMap();
+      
+    });
+    this.fireDB.list('/wifi').valueChanges().subscribe(res => {
+      this.wifiVal = res;
     });
   }
 

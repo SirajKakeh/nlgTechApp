@@ -1,15 +1,15 @@
-<ion-header>
+<!-- <ion-header>
 
   <ion-navbar color="nlgen">
     <ion-title *ngIf="person">{{person.firstName + ' ' + person.lastName + "' "}}Info</ion-title>
   </ion-navbar>
 
-</ion-header>
+</ion-header> -->
 
 
-<ion-content padding>
+<!-- <ion-content padding> -->
   <!-- <ion-card> -->
-  <ion-grid *ngIf="person">
+  <!-- <ion-grid *ngIf="person">
     <ion-row>
       <img src="https://qph.ec.quoracdn.net/main-thumb-100309-50-vctkfcvpnbuhpcpeiupepzbnppopgbph.jpeg" class="personalImg">
       <ion-col class="titleCol">
@@ -20,6 +20,44 @@
     <ion-row class="desRow">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel laoreet erat. Nulla gravida, mauris mollis consectetur varius, tortor elit tempus sem, non tincidunt urna erat in sapien. Curabitur non semper mi. Quisque et tincidunt nisl. Ut sed ipsum eget lectus mollis gravida sed sed arcu. Vivamus turpis risus, congue vel tortor non, placerat ultrices orci. Nunc in venenatis velit, nec cursus odio. Morbi vel feugiat magna. Sed non magna semper, ullamcorper libero vel, congue leo.
     </ion-row>
-  </ion-grid>
+  </ion-grid> -->
   <!-- </ion-card> -->
+<!-- </ion-content> -->
+
+<ion-header>
+    
+      <ion-navbar color="nlgen">
+        <ion-title>profile</ion-title>
+      </ion-navbar>
+    
+</ion-header>
+    
+    
+<ion-content padding>
+  <ion-list>
+      <ion-item>
+        <ion-label floating>First Name</ion-label>
+        <ion-input type="text"  [(ngModel)]="profile.firstName"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Last Name</ion-label>
+        <ion-input type="text"  [(ngModel)]="profile.lastName"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Age</ion-label>
+        <ion-input type="number"  [(ngModel)]="profile.age"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Position</ion-label>
+        <ion-input type="text"  [(ngModel)]="profile.position"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <button ion-button block large (click)="updateProfile()">Continue</button>      
+      </ion-item>
+  </ion-list>
 </ion-content>
+    

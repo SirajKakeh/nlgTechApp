@@ -12,13 +12,12 @@
 
 </ion-header>
 
-
-<ion-content padding>
-  <img *ngIf="items" align="middle" src="https://static1.squarespace.com/static/5836c2c22994ca2c6bbdd1d3/t/5a144d3924a694af717d1943/1512574985581/?format=1500w">
+<ion-content padding >
+  <img *ngIf="items" align="middle" src={{items[1]}}>
   <br>
   <br>
-  <div>
-    {{items}}
+  <div *ngIf="items">
+    {{items[0]}}
   <!-- Child Protection and Adolescents & Youth. -->
 </div>
   

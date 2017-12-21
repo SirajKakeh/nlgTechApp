@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import firebase from 'firebase';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { Console } from '@angular/core/src/console';
 
 /**
  * Generated class for the SpeakersPage page.
@@ -28,6 +29,7 @@ export class SpeakersPage {
     console.log('ionViewDidLoad SpeakersPage');
     this.fireDB.list('/speakers').valueChanges().subscribe(res => {
       this.speakerList = res;
+      console.log(this.speakerList)
     });
   }
 

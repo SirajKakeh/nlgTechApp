@@ -1,28 +1,56 @@
 <ion-menu [content]="myContent" id="menu">
-    <ion-header>
-        <ion-navbar color="nlgen" >
-            <button  ion-button menuToggle>
-              <ion-icon name="menu"></ion-icon>
-              Pages
-            </button>
-          </ion-navbar>
-        
+  <ion-header>
+    <ion-navbar color="nlgen">
+      <button  ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+        Pages
+      </button>
+    </ion-navbar>
+    
+        <div style="color:white; font-size:125%; font-weight: bold; background-color:#00bfbb;padding-left: 0.5cm;padding-top: 0.3cm; padding-bottom: 0.3cm;" *ngIf="userEmail">
+        {{userName}}
+      </div>
+     
     </ion-header>
- 
+    
     <ion-content style="background-color:#00bfbb">
       <ion-list>
-
-        <button style="background-color:#00bfbb" ion-item (click)="agenda()">
-          <h2 style="font-weight:bold; color:aliceblue">Agenda</h2>
-        </button>
-        <button style="background-color:#00bfbb" ion-item (click)='speakers()'>
-          <h2 style="font-weight:bold; color:aliceblue">Speakers</h2>
-        </button>
-        <button style="background-color:#00bfbb" ion-item (click)="map()">
-          <h2 style="font-weight:bold; color:aliceblue " >Location</h2>
-        </button>
+          
+          <button style="background-color:#00bfbb" ion-item (click)="map()">
+              <h2 style="font-weight:bold; color:aliceblue " >
+                  <ion-icon name="ios-navigate" style="width:25px; font-size: 25px;"></ion-icon>
+                Location</h2>
+          </button>
+          <button style="background-color:#00bfbb" ion-item (click)="agenda()"> 
+              <h2 style="font-weight:bold; color:aliceblue">
+                  <ion-icon name="calendar" style="width:25px; font-size: 25px;"></ion-icon>
+                  Agenda</h2>
+          </button>
+          <button style="background-color:#00bfbb" ion-item (click)='speakers()'>
+              <h2 style="font-weight:bold; color:aliceblue">
+                  <ion-icon name="headset" style="width:25px; font-size: 25px;"></ion-icon>
+                Speakers</h2>
+          </button>
+          <button style="background-color:#00bfbb" ion-item >
+              <h2 style="font-weight:bold; color:aliceblue">
+                  <ion-icon name="chatbubbles" style="width:25px; font-size: 25px;"></ion-icon>
+                Chats</h2>
+            </button>
+                
+          <button style="background-color:#00bfbb" ion-item (click)="attendees()">
+            <h2 style="font-weight:bold; color:aliceblue">
+                <ion-icon name="ios-people" style="width:25px; font-size: 25px;"></ion-icon>
+              Attendees</h2>
+          </button>
+          <button style="background-color:#00bfbb" ion-item (click)="profile()">
+            <h2 style="font-weight:bold; color:aliceblue">
+                <ion-icon name="person" style="width:25px; font-size: 25px;"></ion-icon>
+              Profile</h2>
+          </button>
         <button style="background-color:#00bfbb" ion-item (click)='sponsor()'>
-          <h2 style="font-weight:bold; color:aliceblue">Sponsor</h2>
+          <h2 style="font-weight:bold; color:aliceblue">
+              <ion-icon name="briefcase" style="width:25px; font-size: 25px;"></ion-icon>
+            Sponsor</h2>
         </button>
         <button style="background-color:#00bfbb" ion-item (click)='about()'>
           <h2 style="font-weight:bold; color:aliceblue">About</h2>
@@ -33,7 +61,7 @@
 
     <ion-footer> 
       <button style="background-color:#00bfbb" ion-item (click)="signout()" >
-        <h2 style="font-weight:bold; color:aliceblue">Sign Out</h2> 
+        <h2 style="font-weight:bold; color:aliceblue; text-align: center;">Sign Out</h2> 
       </button>
     </ion-footer>
   </ion-menu>

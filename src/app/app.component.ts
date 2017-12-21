@@ -17,15 +17,21 @@ import { SponsorPage } from '../pages/sponsor/sponsor';
 import { AttendeesPage } from '../pages/attendees/attendees';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { AuthProvider } from '../providers/auth/auth';
+import { ProfilePage } from '../pages/profile/profile';
+import firebase from 'firebase';
+import { EditprofilePage } from '../pages/editprofile/editprofile';
 
 @Component({
   templateUrl: 'app.html'
 })
-export class MyApp {
-  //rootPage:any =AgendaPage;
-  rootPage:any = SplashScreenPage;
-  @ViewChild(Nav) nav: Nav;
 
+
+  // rootPage:any =AgendaPage;
+  rootPage:any = SignupPage ;
+  @ViewChild(Nav) nav: Nav;
+  userName;
+  userEmail;
+  usersin;
   constructor(
     private platform: Platform, 
     private statusBar: StatusBar, 
@@ -33,16 +39,37 @@ export class MyApp {
     private angularFireAuth: AngularFireAuth, 
     private menu: MenuController,
     private _authProvider: AuthProvider,
+    public fireDB :AngularFireDatabase
     ) {
     platform.ready().then(() => {
       statusBar.styleDefault();
       splashScreen.hide();
+      setTimeout(() => {
+        console.log(this._authProvider.getUserAuth());
+        this.userEmail = this._authProvider.getUserAuth().email;
+        this.fireDB.list('/users').valueChanges().subscribe( data => {
+          this.usersin = data.filter(user => {
+            console.log(user);
+            // return true;
+            return user.email === this.userEmail
+          });
+          if(this.usersin!==[]) {
+            this.userName = this.usersin[0].firstName + ' ' + this.usersin[0].lastName;
+          }
+          console.log(this.usersin);        
+        });
+      }, 2000);
+      
     });
   }
  
   map() {
     this.menu.close();
     this.nav.push(MapPage);
+  }
+
+  ionViewDidLoad() {
+
   }
 
   agenda() {
@@ -72,6 +99,16 @@ export class MyApp {
         this.menu.close();
       })
       .catch(console.error);
+  }
+
+  profile(){
+    this.menu.close();
+    this.nav.push(ProfilePage);
+
+  }
+  attendees(){
+    this.menu.close();
+    this.nav.push(AttendeesPage);
   }
 }
 

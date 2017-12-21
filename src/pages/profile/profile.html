@@ -1,36 +1,34 @@
+
 <ion-header>
 
   <ion-navbar color="nlgen">
-    <ion-title>profile</ion-title>
+    <ion-title>PROFILE</ion-title>
+    <button  ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+      Pages
+    </button>
   </ion-navbar>
 
 </ion-header>
 
+<ion-content >
+  <div  style="width:100%; height: 200px; background-color:#00bfbb; size:100%;">
+      <ion-img style="width: 50%; height: 50%;" src="https://pixel.nymag.com/imgs/daily/vulture/2017/10/02/02-jon-hamm-1.w710.h473.jpg" 
+        align="middle">
+        
+      </ion-img>
+      <button ion-button clear (click)="editProfile()">
+        <ion-icon name="add" ></ion-icon>
+      </button>
+      <h2 *ngIf="userName">
+          {{userName}}
+      </h2>
+  </div>
+ 
+    
 
-<ion-content padding>
-    <ion-list>
-        <ion-item>
-          <ion-label floating>First Name</ion-label>
-          <ion-input type="text"  [(ngModel)]="profile.firstName"></ion-input>
-        </ion-item>
 
-        <ion-item>
-          <ion-label floating>Last Name</ion-label>
-          <ion-input type="text"  [(ngModel)]="profile.lastName"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-label floating>Age</ion-label>
-          <ion-input type="number"  [(ngModel)]="profile.age"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-label floating>Position</ion-label>
-          <ion-input type="text"  [(ngModel)]="profile.position"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <button ion-button block large (click)="updateProfile()">Continue</button>      
-        </ion-item>
-      </ion-list>
-</ion-content>
+</ion-content>        
+    
+            
+   

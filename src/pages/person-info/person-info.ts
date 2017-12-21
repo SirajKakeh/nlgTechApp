@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { AuthProvider } from '../../providers/auth/auth';
+import { AttendeesPage } from '../attendees/attendees';
 
 @Component({
   selector: 'page-person-info',
@@ -7,14 +9,21 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 
 export class PersonInfoPage {  
-  person;
+  profile = {};
+  userEmail;
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams) {
-  }
+    public navParams: NavParams,
+    private _authProvider: AuthProvider) {
+    }
 
-  ionViewDidLoad() {
-    this.person = this.navParams.get('person');
+  updateProfile() {
+    let uid = this._authProvider.getUserAuth().uid;
+    this.userEmail = this._authProvider.getUserAuth().email;
+    this.profile["email"] = this.userEmail;
+    this.profile["uid"] = uid;
+    this._authProvider.updateUserInfo(this.profile, uid)
+      .then(() => this.navCtrl.setRoot(AttendeesPage))
+      .catch(console.error);
   }
-
 }

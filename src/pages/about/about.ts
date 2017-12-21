@@ -28,6 +28,7 @@ export class AboutPage {
     console.log('ionViewDidLoad AboutPage');
     this.fireDB.list('/about').valueChanges().subscribe(res => {
       this.items = res;
+      console.log(this.items)
     });
   }
 

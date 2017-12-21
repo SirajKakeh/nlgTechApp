@@ -13,6 +13,7 @@ import { SignupPage } from '../signup/signup';
   selector: 'page-signin',
   templateUrl: 'signin.html',
 })
+
 export class SigninPage {
   email;
   password;
@@ -24,8 +25,8 @@ export class SigninPage {
     public angularFireAuth: AngularFireAuth,
     public fireDB:AngularFireDatabase,
     public authProvider:AuthProvider){
-      this.email = 'ss@s.com';
-      this.password = '00000000';
+      this.email = 'dana@gmail.com';
+      this.password = '12345678';
   }
   
   signin() {
