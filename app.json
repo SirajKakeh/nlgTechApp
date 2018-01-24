@@ -1,0 +1,7 @@
+{
+  "name": "NLG Tech App",
+  "description": "The official NLG Tech Summit 2018 networking app",
+  "repository": "https://github.com/SirajKakeh/nlgTechApp",
+  "logo": "https://assets.change.org/photos/3/rf/jf/tCRfjfIboOSSwsd-128x128-noPad.jpg",
+  "keywords": ["Ionic3", "heroku"]
+}
