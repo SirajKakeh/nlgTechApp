@@ -23,8 +23,8 @@ node_modules/
 tmp/
 temp/
 hooks/
-platforms/
-plugins/
+platforms/android
+# plugins/
 plugins/android.json
 plugins/ios.json
 # www/
