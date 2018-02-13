@@ -10,9 +10,11 @@
       <ion-row>
         <img *ngIf="picURL" [src]="picURL" class="personalImg">
         <ion-col class="titleCol">
-          <button ion-button small (click)="goToReportpage()" color="nlgen" style="padding: 17zpx 6px;border-radius: 50%; position: absolute;  right: 0;bottom:0.3px;">
-            Report
-          </button>
+          <a href="https://www.google.com/calendar" target="blank">
+            <button ion-button small color="nlgen" style="padding: 17zpx 6px; position: absolute; right:0; bottom:0px;">
+              Arrange a meeting
+            </button>
+          </a>
           <h1>{{person.firstName + ' ' + person.lastName}}</h1>
           <h3>{{person.position}}</h3>
         </ion-col>
@@ -22,8 +24,8 @@
           {{person.description}}
         </ion-col>
         <ion-col>
-          <button ion-button small (click)="goToCalender()" color="nlgen" style="padding: 17zpx 6px;border-radius: 50%; position: absolute;  right: 0;bottom:0px;">
-            Arange a meeting
+          <button ion-button small (click)="goToReportpage()" color="danger" style="padding: 17zpx 6px; position: absolute; right: 0; bottom:0.3px;">
+            Report
           </button>
         </ion-col>
       </ion-row>

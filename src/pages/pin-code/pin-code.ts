@@ -27,10 +27,11 @@ export class PinCodePage {
 
   ionViewDidLoad() {
     this.menu.enable(false, "menu");
+    setTimeout(() => this._auth.getUserAuth() ? this.navCtrl.setRoot(AgendaPage) : null, 1000)
   }
 
   goToSignIn() {
-    this.navCtrl.push(SigninPage, {hasPinCode: false});
+    this.navCtrl.push(SigninPage, { hasPinCode: false });
   }
 
   openPinCode() {
@@ -51,7 +52,7 @@ export class PinCodePage {
             if (_snapshot.val()[i].value === code && _snapshot.val()[i].is_active === true) {
               flag = true;
               let ref = this.fireDB.database.ref('codes/' + i);
-              if(code!=='090909') {
+              if (code !== '090909') {
                 ref.update({ is_active: false });
               }
             }
@@ -70,10 +71,5 @@ export class PinCodePage {
       }
     })
   }
-  
-  ionCiewDidLoad() {
-    if(this._auth.getUserAuth()) {
-      this.navCtrl.setRoot(AgendaPage);
-    }
-  }
+
 }

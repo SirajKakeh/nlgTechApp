@@ -95,6 +95,7 @@
     <plugin name="cordova-plugin-email-composer" spec="^0.8.11" />
     <plugin name="cordova-plugin-calendar" spec="^5.0.0" />
     <plugin name="cordova-plugin-camera" spec="^4.0.1" />
+    <allow-navigation href="http://192.168.1.7:8100" />
     <engine name="ios" spec="4.5.4" />
     <engine name="android" spec="6.3.0" />
     <engine name="browser" spec="5.0.3" />
