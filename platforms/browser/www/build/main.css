@@ -28136,23 +28136,39 @@ page-app-team .info-style {
 page-app-team ion-card {
   position: relative;
   text-align: center;
+  padding: 0%;
 }
 
 page-app-team .card-title {
   position: absolute;
-  top: 82%;
+  top: 80%;
   font-size: 2.0em;
   width: 100%;
   font-weight: bold;
   color: #fff;
+  text-shadow: 9px 9px 9px #494949;
+  margin: 0%;
+  font-family: 'Jura', sans-serif;
 }
 
 page-app-team .card-subtitle {
-  font-size: 1.0em;
+  margin: 0%;
+  font-size: 1.2em;
   position: absolute;
-  top: 93%;
+  top: 87%;
   width: 100%;
   color: #fff;
+  font-weight: bolder;
+  text-shadow: 9px 9px 9px #494949;
+  font-family: 'Jura', sans-serif;
+}
+
+page-app-team .profImg {
+  display: inline-block;
+  max-width: 40%;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
 }
 
 page-exhibitors #imgStyle {
@@ -28297,6 +28313,20 @@ page-speakers-info #imgStyle {
 
 page-splash-screen .masters {
   background-color: #00bfbb;
+}
+
+page-sponsor .divStyle {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  float: left;
+}
+
+page-sponsor .imgStyle {
+  max-width: 200px;
+  max-height: 200px;
+  padding: 0.2cm 0.2cm 0.2cm 0.2cm;
+  float: left;
 }
 
 page-update-profile #grid {
