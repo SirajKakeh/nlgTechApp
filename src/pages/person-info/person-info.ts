@@ -27,11 +27,11 @@ export class PersonInfoPage {
     this.navCtrl.push(ReportUserPage, this.obj);
   }
 
-  goToCalender() {
-    this.calendar.openCalendar(new Date()).then(
-      (msg) => { console.log(msg); },
-      (err) => { console.log(err); }
-    );
-  }
+  // goToCalender() {
+  //   this.calendar.openCalendar(new Date()).then(
+  //     (msg) => { console.log(msg); },
+  //     (err) => { console.log(err); }
+  //   );
+  // }
 
 }

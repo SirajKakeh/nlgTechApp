@@ -32,6 +32,14 @@
     <ion-row style="padding-top:10px;">
       <ion-col col-1></ion-col>
       <ion-col col-10>
+        <ion-input type="Password" style="border: 1px solid gray" placeholder="Password confirmation" [(ngModel)]="passwordConfirmation"></ion-input>
+      </ion-col>
+      <ion-col col-1></ion-col>
+    </ion-row>
+
+    <ion-row style="padding-top:10px;">
+      <ion-col col-1></ion-col>
+      <ion-col col-10>
         <button ion-button full (click)="signup()" style="background-color:#00bfbb">Sign Up</button>
       </ion-col>
       <ion-col col-1></ion-col>

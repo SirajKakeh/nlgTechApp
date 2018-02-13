@@ -8,12 +8,12 @@ import { AngularFireAuth } from 'angularfire2/auth';
   templateUrl: 'sponsor.html',
 })
 export class SponsorPage {
-  
+
   sponsors;
   constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              public angularFireAuth: AngularFireAuth,
-              public fireDB:AngularFireDatabase) {
+    public navParams: NavParams,
+    public angularFireAuth: AngularFireAuth,
+    public fireDB: AngularFireDatabase) {
   }
 
   ionViewDidLoad() {

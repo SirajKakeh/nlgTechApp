@@ -6,6 +6,7 @@ import { ResetPasswordPage } from '../reset-password/reset-password';
 import { AuthProvider } from '../../providers/auth/auth';
 import { AgendaPage } from '../agenda/agenda';
 import { SignupPage } from '../signup/signup';
+import { PinCodePage } from '../pin-code/pin-code';
 
 @Component({
   selector: 'page-signin',
@@ -27,6 +28,10 @@ export class SigninPage {
     this.hasPinCode = this.navParams.get('hasPinCode');
   }
 
+  ionViewDidLoad() {
+
+  }
+
   signin() {
     this.authProvider.login(this.email, this.password).then(() => this.navCtrl.setRoot(AgendaPage)).catch(err => {
       this.toastCtrl.create({
@@ -44,4 +49,7 @@ export class SigninPage {
     this.navCtrl.push(ResetPasswordPage);
   }
 
+  goToPinCode() {
+    this.navCtrl.setRoot(PinCodePage);
+  }
 }
