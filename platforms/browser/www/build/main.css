@@ -28117,14 +28117,17 @@ page-about .credits {
   font-size: 80%;
 }
 
-page-agenda .list {
-  width: 100%;
-  margin: auto;
-  border: 3px solid #00bfbb;
+page-agenda .eventTitle {
+  color: #00bfbb;
+  font-size: 120%;
+  font-weight: bolder;
 }
 
-page-agenda .texttitel {
+page-agenda .eventSpeaker {
+  font-size: 90%;
   font-weight: bold;
+  padding-top: 1px;
+  margin-bottom: 2px;
 }
 
 page-app-team .info-style {
@@ -28171,6 +28174,10 @@ page-app-team .profImg {
   align-self: center;
 }
 
+page-exhibitors .exName {
+  padding-right: 15%;
+}
+
 page-exhibitors #imgStyle {
   position: absolute;
   top: 0;
@@ -28191,6 +28198,7 @@ page-exhibitors #btnStyle {
   margin: auto;
   margin-top: auto;
   margin-bottom: auto;
+  margin-right: 5px;
   width: 20px;
   right: 0;
 }
@@ -28315,18 +28323,26 @@ page-splash-screen .masters {
   background-color: #00bfbb;
 }
 
-page-sponsor .divStyle {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+page-sponsor .sponsorImg {
+  max-width: 22%;
+  margin-right: 8px;
+  margin-bottom: 8px;
   float: left;
 }
 
-page-sponsor .imgStyle {
-  max-width: 200px;
-  max-height: 200px;
-  padding: 0.2cm 0.2cm 0.2cm 0.2cm;
-  float: left;
+page-sponsor .imgsDiv {
+  display: inline;
+}
+
+page-sponsor .sectionTitle {
+  padding-top: 5px;
+  color: #00bfbb;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+page-sponsor .item {
+  margin-top: 2px;
 }
 
 page-update-profile #grid {
