@@ -28,9 +28,6 @@ export class MapPage {
   map: GoogleMap;
   options: GeolocationOptions;
   currentPos: Geoposition;
-  // rest;
-
-
 
   constructor(
     public navCtrl: NavController,
@@ -44,21 +41,20 @@ export class MapPage {
   ngAfterViewInit() {
     this.platform.ready().then(() => {
       this.loadMap();
-
     });
     this.fireDB.list('/wifi').valueChanges().subscribe(res => {
       this.wifiVal = res;
-    });
+    }).unsubscribe();
   }
 
   loadMap() {
     this.map = new google.maps.Map(this.mapElement.nativeElement, {
-      zoom: 19,
-      center: { lat: 31.9696561, lng: 35.8330706 },
+      zoom: 15,
+      center: { lat: 31.97175, lng: 35.8320335 },
     });
 
     var marker = new google.maps.Marker({
-      position: { lat: 31.9696561, lng: 35.8330706 },
+      position: { lat: 31.97175, lng: 35.8320335 },
       map: this.map,
       title: "King Hussein Business Park Auditorium and Conference Center"
     });

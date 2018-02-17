@@ -1,23 +1,17 @@
 <ion-menu [content]="myContent" (ionOpen)="menuOpened()" id="menu">
-  <ion-header>
-    <!-- <ion-navbar color="nlgen">
-      <button  ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-        Pages
-      </button>
-    </ion-navbar> -->
-  </ion-header>
 
   <ion-content style="background-color:#00bfbb">
     <ion-list>
-      <button style="background-color:#00bfbb" ion-item>
+      <button style="background-color:#00bfbb" (click)="profile()" ion-item>
         <div style="color:white; font-size:90%; font-weight: bold; background-color:#00bfbb;padding-left: 0.1cm;padding-top: 0.1cm; padding-bottom: 0cm;"
           *ngIf="userEmail">
           <img style="height:50px; width:50px; border-radius: 70%;
             margin: auto;" [src]="profilePicURL" align="middle" />
           <br>
           <br>
-          <h6 style="font-size:150%;">{{userName}}</h6>
+          <h6 style="font-size:150%;">
+            {{userName}}
+          </h6>
           {{userEmail}}
         </div>
       </button>
@@ -83,13 +77,13 @@
           About
         </h2>
       </button>
-    
+
       <button style="background-color:#00bfbb" ion-item (click)='team()'>
-          <h2 style="font-weight:bold; color:aliceblue">
-            <ion-icon name="information-circle" style="width:25px; font-size: 25px;"></ion-icon>
-            App Team
-          </h2>
-        </button>
+        <h2 style="font-weight:bold; color:aliceblue">
+          <ion-icon name="information-circle" style="width:25px; font-size: 25px;"></ion-icon>
+          App Team
+        </h2>
+      </button>
     </ion-list>
   </ion-content>
 

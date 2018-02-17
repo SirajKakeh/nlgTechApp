@@ -4,18 +4,18 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content class="content">
   <ion-list>
     <ion-item *ngFor="let exhibitor of exhibitors">
       <ion-thumbnail item-start>
         <a href={{exhibitor.link}} target="blank">
-          <img id="imgStyle" src={{exhibitor.img}}}>
+          <img id="imgStyle" src={{exhibitor.img}}>
         </a>
       </ion-thumbnail>
-      <h2>{{exhibitor.name}}</h2>
-      <ion-thumbnail item-end>
-        <button id="btnStyle" ion-button round small color="nlgen" (click)="goToInfo(exhibitor)">Info</button>
-      </ion-thumbnail>
+      <h2 class="exName" text-wrap>{{exhibitor.name}}</h2>
+      <button id="btnStyle" ion-button round small color="nlgen" (click)="goToInfo(exhibitor)">
+        Info
+      </button>
     </ion-item>
   </ion-list>
 </ion-content>
