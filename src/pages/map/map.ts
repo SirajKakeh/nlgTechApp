@@ -44,7 +44,7 @@ export class MapPage {
     });
     this.fireDB.list('/wifi').valueChanges().subscribe(res => {
       this.wifiVal = res;
-    }).unsubscribe();
+    });
   }
 
   loadMap() {

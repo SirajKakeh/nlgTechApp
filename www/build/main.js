@@ -52,7 +52,7 @@ var PersonalProfViewPage = (function () {
     };
     PersonalProfViewPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-personal-prof-view',template:/*ion-inline-start:"/home/siraj/Desktop/web_nlg/src/pages/personal-prof-view/personal-prof-view.html"*/'<ion-header>\n  <ion-navbar color="nlgen">\n    <ion-title *ngIf="userName">\n      Your Personal Profile\n    </ion-title>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <div style="width:100%; height: 35%px; background-color:#00bfbb; size:100%;">\n    <img id="profImg" [src]="profilePicURL" align="middle"/>\n    <h2 *ngIf="userName" style="text-align:center;">\n      {{userName}}\n    </h2>\n    <h6 style="text-align: center;">{{userEmail}}</h6>\n    <br style="background-color:#00bfbb;">\n  </div>\n\n  <ion-fab right bottom>\n    <button ion-fab (click)="editProfile()" id="fabButt" color="nlgen">\n      <ion-icon large name="more"></ion-icon>\n    </button>\n  </ion-fab>\n</ion-content>'/*ion-inline-end:"/home/siraj/Desktop/web_nlg/src/pages/personal-prof-view/personal-prof-view.html"*/,
+            selector: 'page-personal-prof-view',template:/*ion-inline-start:"/home/siraj/Desktop/web_nlg/src/pages/personal-prof-view/personal-prof-view.html"*/'<ion-header>\n  <ion-navbar color="nlgen">\n    <ion-title *ngIf="userName">\n      Your Personal Profile\n    </ion-title>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <div id="upperDiv" (click)="editProfile()">\n    <img id="profImg" [src]="profilePicURL" align="middle" />\n    <h2 *ngIf="userName" style="text-align:center;">\n      {{userName}}\n    </h2>\n    <h6 style="text-align: center;">{{userEmail}}</h6>\n    <br style="background-color:#00bfbb;">\n  </div>\n\n  <ion-fab right bottom>\n    <button ion-fab (click)="editProfile()" id="fabButt" color="nlgen">\n      <ion-icon large name="more"></ion-icon>\n    </button>\n  </ion-fab>\n</ion-content>'/*ion-inline-end:"/home/siraj/Desktop/web_nlg/src/pages/personal-prof-view/personal-prof-view.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* NavParams */],
@@ -425,7 +425,7 @@ var MapPage = (function () {
         });
         this.fireDB.list('/wifi').valueChanges().subscribe(function (res) {
             _this.wifiVal = res;
-        }).unsubscribe();
+        });
     };
     MapPage.prototype.loadMap = function () {
         this.map = new google.maps.Map(this.mapElement.nativeElement, {
@@ -557,7 +557,7 @@ var SpeakersPage = (function () {
     };
     SpeakersPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-speakers',template:/*ion-inline-start:"/home/siraj/Desktop/web_nlg/src/pages/speakers/speakers.html"*/'<ion-header>\n  <ion-navbar color="nlgen">\n    <ion-title>Speakers</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-list>\n    <ion-item *ngFor="let speaker of speakerList" (click)="goToSpeakerInfo(speaker)">\n      <ion-thumbnail item-start>\n        <img [src]=speaker.img>\n      </ion-thumbnail>\n      <h2>{{speaker.name}}</h2>\n      <p>{{speaker.job}}</p>\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"/home/siraj/Desktop/web_nlg/src/pages/speakers/speakers.html"*/,
+            selector: 'page-speakers',template:/*ion-inline-start:"/home/siraj/Desktop/web_nlg/src/pages/speakers/speakers.html"*/'<ion-header>\n    <ion-navbar color="nlgen">\n      <ion-title>Speakers</ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content>\n    <ion-list>\n      <ion-item *ngFor="let speaker of speakerList" (click)="goToSpeakerInfo(speaker)">\n        <ion-thumbnail item-start>\n          <img [src]=speaker.img>\n        </ion-thumbnail>\n        <h2 text-wrap>{{speaker.name}}</h2>\n        <p text-wrap>{{speaker.job}}</p>\n        <p style="font-style:italic">{{speaker.company}}</p>\n      </ion-item>\n    </ion-list>\n  </ion-content>'/*ion-inline-end:"/home/siraj/Desktop/web_nlg/src/pages/speakers/speakers.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* NavParams */],
@@ -715,7 +715,8 @@ var AttendeesPage = (function () {
         var filterCriteriaInner = {
             "name of organization": "organizationName",
             "type of organization": "organizationType",
-            "position": "position"
+            "position": "position",
+            "country": "country"
         };
         if (searchQueryInner !== '' && this.filterCriteria === 'name') {
             this.filteredUsers = this.users.filter(function (user) {
@@ -735,10 +736,6 @@ var AttendeesPage = (function () {
     AttendeesPage.prototype.setFilterCriteria = function () {
         this.placeHolder = "search by " + this.filterCriteria;
     };
-    AttendeesPage.prototype.sortAttendees = function () {
-        this.users = this.users.sort(function (a, b) { return b.firstName - a.firstName; });
-        this.filteredUsers = this.filteredUsers.sort(function (a, b) { return b.firstName - a.firstName; });
-    };
     AttendeesPage.prototype.getUsers = function () {
         var _this = this;
         this.usersObservable = this._usersProvider.getAttendees().subscribe(function (users) {
@@ -756,7 +753,7 @@ var AttendeesPage = (function () {
     };
     AttendeesPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-attendees',template:/*ion-inline-start:"/home/siraj/Desktop/web_nlg/src/pages/attendees/attendees.html"*/'<ion-header>\n  <ion-navbar color="nlgen">\n    <ion-title>Attendees</ion-title>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-list>\n    <ion-item>\n      <ion-input [(ngModel)]="searchQuery" type="text" [placeholder]="placeHolder" (input)="filterUsers()">Search By</ion-input>\n      <ion-select [(ngModel)]="filterCriteria" (ionChange)="setFilterCriteria()">\n        <ion-option value="name" selected>Name</ion-option>\n        <ion-option value="name of organization">Organization Name</ion-option>\n        <ion-option value="type of organization">Organization Type</ion-option>\n        <ion-option value="position">Position</ion-option>\n      </ion-select>\n    </ion-item>\n  </ion-list>\n\n  <ion-list>\n    <ion-item *ngFor="let user of filteredUsers" (click)="showPerson(user)">\n      <ion-grid>\n        <ion-row>\n          <ion-avatar>\n            <img [src]="user.picUrl">\n          </ion-avatar>\n          <ion-col>\n            <h2>{{user.firstName + \' \' + user.lastName}}</h2>\n            <p>{{user.position}}</p>\n          </ion-col>\n          <ion-icon name="information-circle-outline"></ion-icon>\n        </ion-row>\n      </ion-grid>\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"/home/siraj/Desktop/web_nlg/src/pages/attendees/attendees.html"*/,
+            selector: 'page-attendees',template:/*ion-inline-start:"/home/siraj/Desktop/web_nlg/src/pages/attendees/attendees.html"*/'<ion-header>\n  <ion-navbar color="nlgen">\n    <ion-title>Attendees</ion-title>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-list>\n    <ion-item>\n      <ion-input [(ngModel)]="searchQuery" type="text" [placeholder]="placeHolder" (input)="filterUsers()">Search By</ion-input>\n      <ion-select [(ngModel)]="filterCriteria" (ionChange)="setFilterCriteria()">\n        <ion-option value="name" selected>Name</ion-option>\n        <ion-option value="name of organization">Organization Name</ion-option>\n        <ion-option value="type of organization">Organization Type</ion-option>\n        <ion-option value="position">Position</ion-option>\n        <ion-option value="country">Country</ion-option>\n      </ion-select>\n    </ion-item>\n  </ion-list>\n\n  <ion-list>\n    <ion-item *ngFor="let user of filteredUsers" (click)="showPerson(user)">\n      <ion-grid>\n        <ion-row>\n          <ion-avatar>\n            <img [src]="user.picUrl">\n          </ion-avatar>\n          <ion-col>\n            <h2>{{user.firstName + \' \' + user.lastName}}</h2>\n            <p>{{user.position}}</p>\n          </ion-col>\n          <ion-icon name="information-circle-outline"></ion-icon>\n        </ion-row>\n      </ion-grid>\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"/home/siraj/Desktop/web_nlg/src/pages/attendees/attendees.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* NavParams */],
@@ -801,7 +798,7 @@ var PersonInfoPage = (function () {
         this._camProvider = _camProvider;
         this.calendar = calendar;
         this.person = this.navParams.get('person');
-        this._camProvider.getPicture(this.person.uid).then(function (res) { return _this.picURL = res; });
+        this._camProvider.getPicture(this.person.uid).then(function (res) { return _this.picURL = res; }).catch(function () { return _this.picURL = "https://i.imgur.com/5RAenOq.png"; });
     }
     PersonInfoPage.prototype.goToReportpage = function () {
         this.obj = { ReportUser: this.person };
@@ -809,7 +806,7 @@ var PersonInfoPage = (function () {
     };
     PersonInfoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-person-info',template:/*ion-inline-start:"/home/siraj/Desktop/web_nlg/src/pages/person-info/person-info.html"*/'<ion-header>\n  <ion-navbar color="nlgen">\n    <ion-title *ngIf="person">{{person.firstName + \' \' + person.lastName + "\' "}}Info</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-card>\n    <ion-grid *ngIf="person">\n      <ion-row>\n        <img *ngIf="picURL" [src]="picURL" class="personalImg">\n        <ion-col class="titleCol">\n          <a href="https://www.google.com/calendar" target="blank">\n            <button ion-button small color="nlgen" style="padding: 17zpx 6px; position: absolute; right:0; bottom:0px;">\n              Arrange a meeting\n            </button>\n          </a>\n          <h1>{{person.firstName + \' \' + person.lastName}}</h1>\n          <h3>{{person.position}}</h3>\n        </ion-col>\n      </ion-row>\n      <ion-row class="desRow">\n        <ion-col>\n          {{person.description}}\n        </ion-col>\n        <ion-col>\n          <button ion-button small (click)="goToReportpage()" color="danger" style="padding: 17zpx 6px; position: absolute; right: 0; bottom:0.3px;">\n            Report\n          </button>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </ion-card>\n</ion-content>'/*ion-inline-end:"/home/siraj/Desktop/web_nlg/src/pages/person-info/person-info.html"*/,
+            selector: 'page-person-info',template:/*ion-inline-start:"/home/siraj/Desktop/web_nlg/src/pages/person-info/person-info.html"*/'<ion-header>\n  <ion-navbar color="nlgen">\n    <ion-title *ngIf="person">{{person.firstName + \' \' + person.lastName + "\' "}}Info</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-card no-padding>\n    <ion-item no-padding>\n      <img *ngIf="picURL" [src]="picURL" id="profImg" />\n      <ion-card-content>\n        <ion-card-title>\n          {{person.firstName + \' \' + person.lastName}}\n        </ion-card-title>\n        <p text-wrap>\n          {{person.position}} at {{person.organizationName}}\n        </p>\n      </ion-card-content>\n    </ion-item>\n    <ion-row no-padding>\n      <ion-col>\n        <a href="https://www.google.com/calendar" target="blank">\n          <button ion-button clear small color="nlgen" icon-start>\n            <ion-icon name=\'md-calendar\'></ion-icon>\n            Setup a Meeting\n          </button>\n        </a>\n      </ion-col>\n      <ion-col text-right>\n        <button ion-button clear small (click)="goToReportpage()" color="danger" icon-start>\n          <ion-icon name=\'share-alt\'></ion-icon>\n          Report\n        </button>\n      </ion-col>\n    </ion-row>\n  </ion-card>\n</ion-content>'/*ion-inline-end:"/home/siraj/Desktop/web_nlg/src/pages/person-info/person-info.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* NavParams */],
@@ -860,14 +857,10 @@ var ReportUserPage = (function () {
     }
     ReportUserPage.prototype.ionViewDidLoad = function () {
         var _this = this;
-        console.log('ionViewDidLoad ReportUserPage');
-        console.log(this.ReportUser, "ddddddddddddddddd");
         this.CarantUserEmail = this.authProvider.getUserAuth().email;
         this.CarantUserUid = this.authProvider.getUserAuth().uid;
-        console.log(this.CarantUserEmail, this.CarantUserUid);
         this.firDb.list('/reportEmail').valueChanges().subscribe(function (res) {
             _this.email1 = res;
-            console.log(_this.email1[0]);
         });
     };
     ReportUserPage.prototype.sendMsg = function () {
@@ -877,7 +870,6 @@ var ReportUserPage = (function () {
             reportedUid: this.ReportUser.uid,
             msgte: this.msg
         };
-        console.log(reportObj);
         this.firDb.database.ref('reports').push(reportObj);
         var email = {
             to: this.email1[0],
@@ -1986,25 +1978,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-/**
- * Generated class for the AppTeamPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 var AppTeamPage = (function () {
     function AppTeamPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
     }
     AppTeamPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad AppTeamPage');
     };
     AppTeamPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-app-team',template:/*ion-inline-start:"/home/siraj/Desktop/web_nlg/src/pages/app-team/app-team.html"*/'<ion-header>\n\n  <ion-navbar color="nlgen">\n    <ion-title>App Team</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-card class="card">\n    <img class="profImg" src="https://firebasestorage.googleapis.com/v0/b/nlg-dev.appspot.com/o/team%2F0.jpeg?alt=media&token=f22089e8-a0a1-458f-bf9f-4275fdb2e16d"/>\n    <div class="card-title">Siraj Kakeh</div>\n    <div class="card-subtitle">sirajonline.89@gmail.com</div>\n  </ion-card>\n\n  <ion-card class="card">\n    <img class="profImg" src="https://firebasestorage.googleapis.com/v0/b/nlg-dev.appspot.com/o/team%2F1.jpeg?alt=media&token=36f014a2-8810-47f1-98c6-2309073f484c"/>\n    <div class="card-title">Duha Ali</div>\n    <div class="card-subtitle">dohaali415@gmail.com</div>\n  </ion-card>\n\n  <ion-card class="card">\n    <img class="profImg" src="https://firebasestorage.googleapis.com/v0/b/nlg-dev.appspot.com/o/team%2F2.jpeg?alt=media&token=1b20e260-5339-43ee-885b-1ab744067e4b"/>\n    <div class="card-title">Aaya Hassan</div>\n    <div class="card-subtitle">aayahassan94@gmail.com</div>\n  </ion-card>\n\n  <ion-card class="card">\n    <img class="profImg" src="https://firebasestorage.googleapis.com/v0/b/nlg-dev.appspot.com/o/team%2F3.png?alt=media&token=a78fea3c-8ce6-440b-a9c0-36ecdf0a9af0"/>\n    <div class="card-title">Rana Kelani</div>\n    <div class="card-subtitle">rana.kelani@gmail.com</div>\n  </ion-card>\n\n  <ion-card class="card">\n    <img class="profImg" src="https://firebasestorage.googleapis.com/v0/b/nlg-dev.appspot.com/o/team%2F4.jpeg?alt=media&token=435f0903-7613-4b78-af1f-28858a8af612"/>\n    <div class="card-title">Majd Muhder</div>\n    <div class="card-subtitle">majd@rbk.org</div>\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"/home/siraj/Desktop/web_nlg/src/pages/app-team/app-team.html"*/,
+            selector: 'page-app-team',template:/*ion-inline-start:"/home/siraj/Desktop/web_nlg/src/pages/app-team/app-team.html"*/'<ion-header>\n  <ion-navbar color="nlgen">\n    <ion-title>App Team</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h4 id="refugeesHeader">Built By Refugees</h4>\n  <ion-card>\n    <img src="https://firebasestorage.googleapis.com/v0/b/nlg-dev.appspot.com/o/team%2F0.jpeg?alt=media&token=f22089e8-a0a1-458f-bf9f-4275fdb2e16d"\n    />\n    <div class="card-title">Siraj Kakeh</div>\n    <div class="card-subtitle">sirajonline.89@gmail.com</div>\n  </ion-card>\n\n  <ion-card>\n    <img src="https://firebasestorage.googleapis.com/v0/b/nlg-dev.appspot.com/o/team%2F1.jpeg?alt=media&token=36f014a2-8810-47f1-98c6-2309073f484c"\n    />\n    <div class="card-title">Duha Ali</div>\n    <div class="card-subtitle">dohaali415@gmail.com</div>\n  </ion-card>\n\n  <ion-card>\n    <img src="https://firebasestorage.googleapis.com/v0/b/nlg-dev.appspot.com/o/team%2F2.jpeg?alt=media&token=1b20e260-5339-43ee-885b-1ab744067e4b"\n    />\n    <div class="card-title">Aaya Hassan</div>\n    <div class="card-subtitle">aayahassan94@gmail.com</div>\n  </ion-card>\n\n  <ion-card>\n    <img src="https://firebasestorage.googleapis.com/v0/b/nlg-dev.appspot.com/o/team%2FAAEAAQAAAAAAAAdAAAAAJDI2Y2MwZjI4LTYwNDUtNGE4Ny04MmQwLThiYjIxNTY4N2FjZg.jpg?alt=media&token=fe9610ca-bfdd-42f0-81e5-fcc4a8089d57"\n    />\n    <div class="card-title">Rana Kelani</div>\n    <div class="card-subtitle">rana.kelani@gmail.com</div>\n  </ion-card>\n\n  <ion-card>\n    <img src="https://firebasestorage.googleapis.com/v0/b/nlg-dev.appspot.com/o/team%2F4.jpeg?alt=media&token=435f0903-7613-4b78-af1f-28858a8af612"\n    />\n    <div class="card-title">Majd Muhder</div>\n    <div class="card-subtitle">majd@rbk.org</div>\n  </ion-card>\n</ion-content>'/*ion-inline-end:"/home/siraj/Desktop/web_nlg/src/pages/app-team/app-team.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* NavParams */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* NavParams */]])
     ], AppTeamPage);
     return AppTeamPage;
 }());
@@ -2364,7 +2350,7 @@ var MyApp = (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/siraj/Desktop/web_nlg/src/app/app.html"*/'<ion-menu [content]="myContent" (ionOpen)="menuOpened()" id="menu">\n\n  <ion-content style="background-color:#00bfbb">\n    <ion-list>\n      <button style="background-color:#00bfbb" (click)="profile()" ion-item>\n        <div style="color:white; font-size:90%; font-weight: bold; background-color:#00bfbb;padding-left: 0.1cm;padding-top: 0.1cm; padding-bottom: 0cm;"\n          *ngIf="userEmail">\n          <img style="height:50px; width:50px; border-radius: 70%;\n            margin: auto;" [src]="profilePicURL" align="middle" />\n          <br>\n          <br>\n          <h6 style="font-size:150%;">\n            {{userName}}\n          </h6>\n          {{userEmail}}\n        </div>\n      </button>\n\n      <button style="background-color:#00bfbb" ion-item (click)="agenda()">\n        <h2 style="font-weight:bold; color:aliceblue">\n          <ion-icon name="calendar" style="width:25px; font-size: 25px;"></ion-icon>\n          Agenda\n        </h2>\n      </button>\n\n      <button style="background-color:#00bfbb" ion-item (click)="attendees()">\n        <h2 style="font-weight:bold; color:aliceblue">\n          <ion-icon name="ios-people" style="width:25px; font-size: 25px;"></ion-icon>\n          Attendees</h2>\n      </button>\n\n      <button style="background-color:#00bfbb" ion-item (click)=\'speakers()\'>\n        <h2 style="font-weight:bold; color:aliceblue">\n          <ion-icon name="headset" style="width:25px; font-size: 25px;"></ion-icon>\n          Speakers\n        </h2>\n      </button>\n\n      <button style="background-color:#00bfbb" ion-item (click)=\'exhibitors()\'>\n        <h2 style="font-weight:bold; color:aliceblue">\n          <ion-icon name="briefcase" style="width:25px; font-size: 25px;"></ion-icon>\n          Exhibitors\n        </h2>\n      </button>\n\n      <button style="background-color:#00bfbb" ion-item (click)="chat()">\n        <h2 style="font-weight:bold; color:aliceblue">\n          <ion-icon name="chatbubbles" style="width:25px; font-size: 25px;"></ion-icon>\n          Chats\n        </h2>\n      </button>\n\n      <button style="background-color:#00bfbb" ion-item (click)=\'sponsor()\'>\n        <h2 style="font-weight:bold; color:aliceblue">\n          <ion-icon name="card" style="width:25px; font-size: 25px;"></ion-icon>\n          Sponsors\n        </h2>\n      </button>\n\n      <button style="background-color:#00bfbb" ion-item (click)="map()">\n        <h2 style="font-weight:bold; color:aliceblue ">\n          <ion-icon name="ios-navigate" style="width:25px; font-size: 25px;"></ion-icon>\n          Location\n        </h2>\n      </button>\n\n      <button style="background-color:#00bfbb" ion-item (click)="profile()">\n        <h2 style="font-weight:bold; color:aliceblue">\n          <ion-icon name="person" style="width:25px; font-size: 25px;"></ion-icon>\n          Profile\n        </h2>\n      </button>\n\n      <button style="background-color:#00bfbb" ion-item (click)=\'about()\'>\n        <h2 style="font-weight:bold; color:aliceblue">\n          <ion-icon name="information-circle" style="width:25px; font-size: 25px;"></ion-icon>\n          About\n        </h2>\n      </button>\n\n      <button style="background-color:#00bfbb" ion-item (click)=\'team()\'>\n        <h2 style="font-weight:bold; color:aliceblue">\n          <ion-icon name="information-circle" style="width:25px; font-size: 25px;"></ion-icon>\n          App Team\n        </h2>\n      </button>\n    </ion-list>\n  </ion-content>\n\n  <ion-footer>\n    <button style="background-color:#00bfbb" ion-item (click)="signout()">\n      <h2 style="font-weight:bold; color:aliceblue; text-align: center;">\n        Sign Out\n      </h2>\n    </button>\n  </ion-footer>\n</ion-menu>\n\n<ion-nav id="nav" #myContent [root]="rootPage"></ion-nav>'/*ion-inline-end:"/home/siraj/Desktop/web_nlg/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/siraj/Desktop/web_nlg/src/app/app.html"*/'<ion-menu [content]="myContent" (ionOpen)="menuOpened()" id="menu">\n\n  <ion-content style="background-color:#00bfbb">\n    <ion-list>\n      <button style="background-color:#00bfbb" (click)="profile()" ion-item>\n        <div style="color:white; font-size:90%; font-weight: bold; background-color:#00bfbb;padding-left: 0.1cm;padding-top: 0.1cm; padding-bottom: 0cm;"\n          *ngIf="userEmail">\n          <img style="height:50px; width:50px; border-radius: 70%;\n            margin: auto;" [src]="profilePicURL" align="middle" />\n          <br>\n          <br>\n          <h6 style="font-size:150%;">\n            {{userName}}\n          </h6>\n          {{userEmail}}\n        </div>\n      </button>\n\n      <button style="background-color:#00bfbb" ion-item (click)="agenda()">\n        <h2 style="font-weight:bold; color:aliceblue">\n          <ion-icon name="calendar" style="width:25px; font-size: 25px;"></ion-icon>\n          Agenda\n        </h2>\n      </button>\n\n      <button style="background-color:#00bfbb" ion-item (click)="attendees()">\n        <h2 style="font-weight:bold; color:aliceblue">\n          <ion-icon name="ios-people" style="width:25px; font-size: 25px;"></ion-icon>\n          Attendees</h2>\n      </button>\n\n      <button style="background-color:#00bfbb" ion-item (click)=\'speakers()\'>\n        <h2 style="font-weight:bold; color:aliceblue">\n          <ion-icon name="headset" style="width:25px; font-size: 25px;"></ion-icon>\n          Speakers\n        </h2>\n      </button>\n\n      <button style="background-color:#00bfbb" ion-item (click)=\'exhibitors()\'>\n        <h2 style="font-weight:bold; color:aliceblue">\n          <ion-icon name="briefcase" style="width:25px; font-size: 25px;"></ion-icon>\n          Exhibitors\n        </h2>\n      </button>\n\n      <button style="background-color:#00bfbb" ion-item (click)="chat()">\n        <h2 style="font-weight:bold; color:aliceblue">\n          <ion-icon name="chatbubbles" style="width:25px; font-size: 25px;"></ion-icon>\n          Chats\n        </h2>\n      </button>\n\n      <button style="background-color:#00bfbb" ion-item (click)=\'sponsor()\'>\n        <h2 style="font-weight:bold; color:aliceblue">\n          <ion-icon name="card" style="width:25px; font-size: 25px;"></ion-icon>\n          Sponsors\n        </h2>\n      </button>\n\n      <button style="background-color:#00bfbb" ion-item (click)="map()">\n        <h2 style="font-weight:bold; color:aliceblue ">\n          <ion-icon name="ios-navigate" style="width:25px; font-size: 25px;"></ion-icon>\n          Location\n        </h2>\n      </button>\n\n      <button style="background-color:#00bfbb" ion-item (click)="profile()">\n        <h2 style="font-weight:bold; color:aliceblue">\n          <ion-icon name="person" style="width:25px; font-size: 25px;"></ion-icon>\n          Profile\n        </h2>\n      </button>\n\n      <button style="background-color:#00bfbb" ion-item (click)=\'about()\'>\n        <h2 style="font-weight:bold; color:aliceblue">\n          <ion-icon name="information-circle" style="width:25px; font-size: 25px;"></ion-icon>\n          About\n        </h2>\n      </button>\n\n      <button style="background-color:#00bfbb" ion-item (click)=\'team()\'>\n        <h2 style="font-weight:bold; color:aliceblue">\n          <ion-icon name="people" style="width:25px; font-size: 25px;"></ion-icon>\n          App Team\n        </h2>\n      </button>\n    </ion-list>\n  </ion-content>\n\n  <ion-footer>\n    <button style="background-color:#00bfbb" ion-item (click)="signout()">\n      <h2 style="font-weight:bold; color:aliceblue; text-align: center;">\n        Sign Out\n      </h2>\n    </button>\n  </ion-footer>\n</ion-menu>\n\n<ion-nav id="nav" #myContent [root]="rootPage"></ion-nav>'/*ion-inline-end:"/home/siraj/Desktop/web_nlg/src/app/app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */],
@@ -2453,17 +2439,21 @@ var AgendaPage = (function () {
         this.navParams = navParams;
         this.fireDB = fireDB;
         this.menu = menu;
+        this.day1 = "day1";
+        this.day2 = "day2";
+        this.day = this.day1;
     }
     AgendaPage.prototype.ionViewDidLoad = function () {
         var _this = this;
         this.menu.enable(true, "menu");
-        this.fireDB.list('/agenda').valueChanges().subscribe(function (res) {
-            _this.items = res;
-        });
+        this.day1Observable = this.fireDB.list('/agenda/day1').valueChanges();
+        this.day2Observable = this.fireDB.list('/agenda/day2').valueChanges();
+        this.day1Observable.subscribe(function (res) { return _this.day1List = res; });
+        this.day2Observable.subscribe(function (res) { return _this.day2List = res; });
     };
     AgendaPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-agenda',template:/*ion-inline-start:"/home/siraj/Desktop/web_nlg/src/pages/agenda/agenda.html"*/'<ion-header>\n  <ion-navbar color="nlgen">\n    <ion-title>Agenda</ion-title>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-list *ngFor="let item of items">\n    <ion-item text-wrap>\n      <h2 class=\'eventTitle\'>\n        {{item.sessionName}}\n      </h2>\n    </ion-item>\n    <ion-item>\n      <h3 text-wrap class="eventSpeaker">\n        {{item.speaker}}\n      </h3>\n      <h3>{{item.time}}</h3>\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"/home/siraj/Desktop/web_nlg/src/pages/agenda/agenda.html"*/,
+            selector: 'page-agenda',template:/*ion-inline-start:"/home/siraj/Desktop/web_nlg/src/pages/agenda/agenda.html"*/'<ion-header>\n    <ion-navbar color="nlgen">\n      <ion-title>Agenda</ion-title>\n      <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content>\n    <ion-segment color="nlgen" id="segment" [(ngModel)]="day">\n      <ion-segment-button value="day1">\n        Day 1\n      </ion-segment-button>\n      <ion-segment-button value="day2">\n        Day 2\n      </ion-segment-button>\n    </ion-segment>\n  \n    <div [ngSwitch]="day">\n      <div *ngSwitchCase="day1">\n        <ion-list *ngFor="let session of day1List">\n          <ion-item text-wrap>\n            <h2 class=\'eventTitle\'>\n              {{session.sessionName}}\n            </h2>\n          </ion-item>\n          <ion-item>\n            <h3 text-wrap class="eventSpeaker">\n              {{session.speaker}}\n            </h3>\n            <h3>{{session.time}}</h3>\n          </ion-item>\n        </ion-list>\n      </div>\n  \n      <div *ngSwitchCase="day2">\n        <ion-list *ngFor="let session of day2List">\n          <ion-item text-wrap>\n            <h2 class=\'eventTitle\'>\n              {{session.sessionName}}\n            </h2>\n          </ion-item>\n          <ion-item>\n            <h3 text-wrap class="eventSpeaker">\n              {{session.speaker}}\n            </h3>\n            <h3>{{session.time}}</h3>\n          </ion-item>\n        </ion-list>\n      </div>\n  \n    </div>\n  \n  </ion-content>'/*ion-inline-end:"/home/siraj/Desktop/web_nlg/src/pages/agenda/agenda.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* NavParams */],

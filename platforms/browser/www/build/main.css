@@ -28139,39 +28139,33 @@ page-app-team .info-style {
 page-app-team ion-card {
   position: relative;
   text-align: center;
-  padding: 0%;
+}
+
+page-app-team #refugeesHeader {
+  margin-top: 0%;
+  font-style: italic;
+  text-align: center;
+  font-size: 80%;
+  font-family: 'Slabo 27px', serif;
 }
 
 page-app-team .card-title {
   position: absolute;
-  top: 80%;
+  top: 82%;
   font-size: 2.0em;
   width: 100%;
   font-weight: bold;
   color: #fff;
   text-shadow: 9px 9px 9px #494949;
-  margin: 0%;
-  font-family: 'Jura', sans-serif;
 }
 
 page-app-team .card-subtitle {
-  margin: 0%;
-  font-size: 1.2em;
+  font-size: 1.0em;
   position: absolute;
-  top: 87%;
+  top: 93%;
   width: 100%;
   color: #fff;
-  font-weight: bolder;
   text-shadow: 9px 9px 9px #494949;
-  font-family: 'Jura', sans-serif;
-}
-
-page-app-team .profImg {
-  display: inline-block;
-  max-width: 40%;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
 }
 
 page-exhibitors .exName {
@@ -28207,18 +28201,8 @@ page-map #map {
   height: 100%;
 }
 
-page-person-info .personalImg {
-  min-width: 50%;
-  min-height: 15em;
-  max-width: 40%;
-}
-
-page-person-info .desRow {
-  margin-top: 1em;
-  padding-top: 1em;
-  border-top-style: solid;
-  border-top-width: 1px;
-  font-size: 120%;
+page-person-info #profImg {
+  margin-left: 10px;
 }
 
 page-personal-prof-view #profImg {
@@ -28228,6 +28212,14 @@ page-personal-prof-view #profImg {
   height: 10em;
   margin: auto;
   border-radius: 100%;
+}
+
+page-personal-prof-view #upperDiv {
+  width: 100%;
+  height: 35%px;
+  background-color: #00bfbb;
+  size: 100%;
+  padding-top: 10px;
 }
 
 page-pin-code #logoImg {
@@ -28324,7 +28316,7 @@ page-splash-screen .masters {
 }
 
 page-sponsor .sponsorImg {
-  max-width: 22%;
+  max-width: 46%;
   margin-right: 8px;
   margin-bottom: 8px;
   float: left;

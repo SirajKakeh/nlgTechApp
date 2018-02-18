@@ -1,24 +1,55 @@
 <ion-header>
-  <ion-navbar color="nlgen">
-    <ion-title>Agenda</ion-title>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-  <ion-list *ngFor="let item of items">
-    <ion-item text-wrap>
-      <h2 class='eventTitle'>
-        {{item.sessionName}}
-      </h2>
-    </ion-item>
-    <ion-item>
-      <h3 text-wrap class="eventSpeaker">
-        {{item.speaker}}
-      </h3>
-      <h3>{{item.time}}</h3>
-    </ion-item>
-  </ion-list>
-</ion-content>
+    <ion-navbar color="nlgen">
+      <ion-title>Agenda</ion-title>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-segment color="nlgen" id="segment" [(ngModel)]="day">
+      <ion-segment-button value="day1">
+        Day 1
+      </ion-segment-button>
+      <ion-segment-button value="day2">
+        Day 2
+      </ion-segment-button>
+    </ion-segment>
+  
+    <div [ngSwitch]="day">
+      <div *ngSwitchCase="day1">
+        <ion-list *ngFor="let session of day1List">
+          <ion-item text-wrap>
+            <h2 class='eventTitle'>
+              {{session.sessionName}}
+            </h2>
+          </ion-item>
+          <ion-item>
+            <h3 text-wrap class="eventSpeaker">
+              {{session.speaker}}
+            </h3>
+            <h3>{{session.time}}</h3>
+          </ion-item>
+        </ion-list>
+      </div>
+  
+      <div *ngSwitchCase="day2">
+        <ion-list *ngFor="let session of day2List">
+          <ion-item text-wrap>
+            <h2 class='eventTitle'>
+              {{session.sessionName}}
+            </h2>
+          </ion-item>
+          <ion-item>
+            <h3 text-wrap class="eventSpeaker">
+              {{session.speaker}}
+            </h3>
+            <h3>{{session.time}}</h3>
+          </ion-item>
+        </ion-list>
+      </div>
+  
+    </div>
+  
+  </ion-content>
