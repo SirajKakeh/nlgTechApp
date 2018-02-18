@@ -17,7 +17,7 @@ export class AttendeesPage {
   searchQuery = '';
   placeHolder = 'search by name';
   filterCriteria = "name";
-  constructor (
+  constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private _usersProvider: UsersProvider
@@ -30,14 +30,15 @@ export class AttendeesPage {
     let filterCriteriaInner = {
       "name of organization": "organizationName",
       "type of organization": "organizationType",
-      "position": "position"
+      "position": "position",
+      "country": "country"
     }
 
-    if(searchQueryInner !== '' && this.filterCriteria === 'name') {
+    if (searchQueryInner !== '' && this.filterCriteria === 'name') {
       this.filteredUsers = this.users.filter(user =>
         user.firstName.toLowerCase().includes(searchQueryInner) ||
         user.lastName.toLowerCase().includes(searchQueryInner));
-    } else if(searchQueryInner !== '' && this.filterCriteria !== 'name') {
+    } else if (searchQueryInner !== '' && this.filterCriteria !== 'name') {
       this.filteredUsers = this.users.filter(user =>
         user[filterCriteriaInner[this.filterCriteria]].toLowerCase().includes(searchQueryInner))
     } else {
@@ -49,24 +50,19 @@ export class AttendeesPage {
     this.placeHolder = `search by ${this.filterCriteria}`;
   }
 
-  sortAttendees() {
-    this.users = this.users.sort((a,b) => b.firstName - a.firstName);
-    this.filteredUsers = this.filteredUsers.sort((a,b) => b.firstName - a.firstName);
-  }
-
   getUsers() {
-    this.usersObservable = this. _usersProvider.getAttendees().subscribe(users => {
+    this.usersObservable = this._usersProvider.getAttendees().subscribe(users => {
       this.users = users;
       this.filteredUsers = users;
-   });
+    });
   }
 
   showPerson(person) {
-    this.navCtrl.push(PersonInfoPage, {person: person});
+    this.navCtrl.push(PersonInfoPage, { person: person });
   }
-  
+
   ionViewWillLeave() {
-    if(!!this.usersObservable) {
+    if (!!this.usersObservable) {
       this.usersObservable.unsubscribe();
     }
   }

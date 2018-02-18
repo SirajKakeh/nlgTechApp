@@ -21,7 +21,6 @@ export class ExhibitorsPage {
   ionViewDidLoad() {
     this.fireDB.list('/exhibitor').valueChanges().subscribe(res => {
       this.exhibitors = res;
-      console.log(this.exhibitors)
     });
   }
 

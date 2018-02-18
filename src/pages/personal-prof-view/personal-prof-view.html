@@ -10,8 +10,8 @@
 </ion-header>
 
 <ion-content>
-  <div style="width:100%; height: 35%px; background-color:#00bfbb; size:100%;">
-    <img id="profImg" [src]="profilePicURL" align="middle"/>
+  <div id="upperDiv" (click)="editProfile()">
+    <img id="profImg" [src]="profilePicURL" align="middle" />
     <h2 *ngIf="userName" style="text-align:center;">
       {{userName}}
     </h2>

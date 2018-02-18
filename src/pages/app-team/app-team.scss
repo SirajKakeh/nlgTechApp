@@ -1,43 +1,40 @@
 page-app-team {
-    .info-style {
+  .info-style {
       position: absolute;
       bottom: 120px;
       left: 30px;
-    }
+  }
 
-    ion-card {
+  ion-card {
       position: relative;
       text-align: center;
-      padding: 0%;
-    }
+  }
 
-    .card-title {
+  #refugeesHeader {
+      margin-top: 0%;
+      font-style: italic;
+      text-align: center;
+      font-size: 80%;
+      font-family: 'Slabo 27px', serif;
+  }
+
+  .card-title {
       position: absolute;
-      top: 80%;
+      top: 82%;
       font-size: 2.0em;
       width: 100%;
       font-weight: bold;
       color: #fff;
       text-shadow: 9px 9px 9px rgb(73, 73, 73);
-      margin: 0%;
-      font-family: 'Jura', sans-serif;
-    }
+  }
 
-    .card-subtitle {
-      margin: 0%;
-      font-size: 1.2em;
+  .card-subtitle {
+      font-size: 1.0em;
       position: absolute;
-      top: 87%;
+      top: 93%;
       width: 100%;
       color: #fff;
-      font-weight: bolder;
-      text-shadow: 9px 9px 9px rgb(73, 73, 73);   
-      font-family: 'Jura', sans-serif;  
-    }
+      text-shadow: 9px 9px 9px rgb(73, 73, 73);
+  }
 
-    .profImg {
-      display: inline-block;
-      max-width: 40%;
-      align-self: center;
-    }
 }

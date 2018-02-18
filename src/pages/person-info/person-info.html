@@ -4,31 +4,34 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-card>
-    <ion-grid *ngIf="person">
-      <ion-row>
-        <img *ngIf="picURL" [src]="picURL" class="personalImg">
-        <ion-col class="titleCol">
-          <a href="https://www.google.com/calendar" target="blank">
-            <button ion-button small color="nlgen" style="padding: 17zpx 6px; position: absolute; right:0; bottom:0px;">
-              Arrange a meeting
-            </button>
-          </a>
-          <h1>{{person.firstName + ' ' + person.lastName}}</h1>
-          <h3>{{person.position}}</h3>
-        </ion-col>
-      </ion-row>
-      <ion-row class="desRow">
-        <ion-col>
-          {{person.description}}
-        </ion-col>
-        <ion-col>
-          <button ion-button small (click)="goToReportpage()" color="danger" style="padding: 17zpx 6px; position: absolute; right: 0; bottom:0.3px;">
-            Report
+<ion-content>
+  <ion-card no-padding>
+    <ion-item no-padding>
+      <img *ngIf="picURL" [src]="picURL" id="profImg" />
+      <ion-card-content>
+        <ion-card-title>
+          {{person.firstName + ' ' + person.lastName}}
+        </ion-card-title>
+        <p text-wrap>
+          {{person.position}} at {{person.organizationName}}
+        </p>
+      </ion-card-content>
+    </ion-item>
+    <ion-row no-padding>
+      <ion-col>
+        <a href="https://www.google.com/calendar" target="blank">
+          <button ion-button clear small color="nlgen" icon-start>
+            <ion-icon name='md-calendar'></ion-icon>
+            Setup a Meeting
           </button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+        </a>
+      </ion-col>
+      <ion-col text-right>
+        <button ion-button clear small (click)="goToReportpage()" color="danger" icon-start>
+          <ion-icon name='share-alt'></ion-icon>
+          Report
+        </button>
+      </ion-col>
+    </ion-row>
   </ion-card>
 </ion-content>

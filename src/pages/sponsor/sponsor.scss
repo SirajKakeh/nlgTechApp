@@ -1,16 +1,24 @@
 page-sponsor {
-  .divStyle{
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
+  
+  .sponsorImg {
+    max-width: 46%;
+    margin-right: 8px;
+    margin-bottom: 8px;
     float: left;
   }
 
-  .imgStyle{
-    max-width:200px;
-    max-height:200px;
-    padding: 0.2cm 0.2cm 0.2cm 0.2cm;
-    float: left;
+  .imgsDiv {
+    display: inline;
   }
 
+  .sectionTitle {
+    padding-top: 5px;
+    color: #00bfbb;
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
+
+  .item {
+    margin-top: 2px;
+  }
 }

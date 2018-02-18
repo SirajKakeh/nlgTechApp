@@ -8,20 +8,26 @@ import { AngularFireAuth } from 'angularfire2/auth';
   templateUrl: 'sponsor.html',
 })
 export class SponsorPage {
-
+  techSponsors;
+  travelSponsors;
   sponsors;
-  constructor(public navCtrl: NavController,
+  constructor(
+    public navCtrl: NavController,
     public navParams: NavParams,
     public angularFireAuth: AngularFireAuth,
     public fireDB: AngularFireDatabase) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SponsorPage');
-    this.fireDB.list('/sponsor').valueChanges().subscribe(res => {
+    this.fireDB.list('/sponsor/sponsors').valueChanges().subscribe(res => {
       this.sponsors = res;
-      console.log(this.sponsors)
-    });
+    }).unsubscribe;
+    this.fireDB.list('/sponsor/tech').valueChanges().subscribe(res => {
+      this.techSponsors = res;
+    }).unsubscribe;
+    this.fireDB.list('/sponsor/travel').valueChanges().subscribe(res => {
+      this.travelSponsors = res;
+    }).unsubscribe;
   }
 
 }

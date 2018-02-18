@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { FormBuilder, Validators } from '@angular/forms';
-import { AuthData } from  '../../providers/auth-data/auth-data';
-import {FormControl} from '@angular/forms';
-import { SigninPage } from '../signin/signin';
+import { AuthData } from '../../providers/auth-data/auth-data';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'page-reset-password',
@@ -18,14 +17,14 @@ export class ResetPasswordPage {
     public navParams: NavParams,
     public formBuilder: FormBuilder,
     public alertCtrl: AlertController
-   ) {
+  ) {
     this.resetPasswordForm = formBuilder.group({
       email: ['', Validators.compose([Validators.required, EmailValidator.isValid])],
     })
   }
 
-  resetPassword(){
-    if (!this.resetPasswordForm.valid){
+  resetPassword() {
+    if (!this.resetPasswordForm.valid) {
       console.log(this.resetPasswordForm.value);
     } else {
       this.authData.resetPassword(this.resetPasswordForm.value.email).then((user) => {
@@ -69,7 +68,6 @@ class EmailValidator {
     if (re) {
       return null;
     }
-
-    return {"invalidEmail": true};
+    return { "invalidEmail": true };
   }
 }

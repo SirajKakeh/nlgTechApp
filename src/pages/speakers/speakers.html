@@ -1,17 +1,18 @@
 <ion-header>
-  <ion-navbar color="nlgen">
-    <ion-title>Speakers</ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-  <ion-list>
-    <ion-item *ngFor="let speaker of speakerList" (click)="goToSpeakerInfo(speaker)">
-      <ion-thumbnail item-start>
-        <img [src]=speaker.img>
-      </ion-thumbnail>
-      <h2>{{speaker.name}}</h2>
-      <p>{{speaker.job}}</p>
-    </ion-item>
-  </ion-list>
-</ion-content>
+    <ion-navbar color="nlgen">
+      <ion-title>Speakers</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-list>
+      <ion-item *ngFor="let speaker of speakerList" (click)="goToSpeakerInfo(speaker)">
+        <ion-thumbnail item-start>
+          <img [src]=speaker.img>
+        </ion-thumbnail>
+        <h2 text-wrap>{{speaker.name}}</h2>
+        <p text-wrap>{{speaker.job}}</p>
+        <p style="font-style:italic">{{speaker.company}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
