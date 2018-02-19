@@ -8,11 +8,15 @@
   <ion-list>
     <ion-item *ngFor="let exhibitor of exhibitors">
       <ion-thumbnail item-start>
-        <a href={{exhibitor.link}} target="blank">
+        <a id="hLink" href={{exhibitor.link}} target="blank">
           <img id="imgStyle" src={{exhibitor.img}}>
         </a>
       </ion-thumbnail>
-      <h2 class="exName" text-wrap>{{exhibitor.name}}</h2>
+      <a href={{exhibitor.link}} target="blank">
+        <h2 class="exName" text-wrap>
+          {{exhibitor.name}}
+        </h2>
+      </a>
       <button id="btnStyle" ion-button round small color="nlgen" (click)="goToInfo(exhibitor)">
         Info
       </button>

@@ -4,9 +4,11 @@
   </ion-navbar>
 </ion-header>
 
-
-<ion-content padding>
-  <img *ngIf="info" src={{info.img}}}>
-  <h2 *ngIf="info"  align="middle">{{info.name}} </h2>
-  <p *ngIf="info">{{info.about}}</p>
+<ion-content *ngIf="info" padding>
+  <img src={{info.img}}}>
+  <h2 align="middle">{{info.name}} </h2>
+  <p>{{info.about}}</p>
+  <a href={{info.link}} target="blank">
+    <button color="nlgen" block ion-button>Visit Site</button>
+  </a>
 </ion-content>
