@@ -28145,7 +28145,7 @@ page-app-team #refugeesHeader {
   margin-top: 0%;
   font-style: italic;
   text-align: center;
-  font-size: 80%;
+  font-size: 150%;
   font-family: 'Slabo 27px', serif;
 }
 
@@ -28170,6 +28170,8 @@ page-app-team .card-subtitle {
 
 page-exhibitors .exName {
   padding-right: 15%;
+  color: black;
+  text-decoration: none;
 }
 
 page-exhibitors #imgStyle {
@@ -28183,6 +28185,11 @@ page-exhibitors #imgStyle {
   max-height: 70px;
   width: auto;
   height: auto;
+}
+
+page-exhibitors #hLink:link {
+  text-decoration: none;
+  color: black;
 }
 
 page-exhibitors #btnStyle {
