@@ -14,7 +14,7 @@ export class ExhibitorsInfoPage {
   }
 
   ionViewDidLoad() {
-    this.info = this.navParams.get('exhibitorInfo')
+    this.info = this.navParams.get('exhibitorInfo');
   }
 
 }
