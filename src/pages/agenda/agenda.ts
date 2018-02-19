@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { MenuController } from 'ionic-angular/components/app/menu-controller';
+import { ChatProvider } from '../../providers/chat/chat';
 
 @Component({
   selector: 'page-agenda',
@@ -9,7 +10,6 @@ import { MenuController } from 'ionic-angular/components/app/menu-controller';
 })
 
 export class AgendaPage {
-  items
   day1Observable;
   day2Observable;
   day1List;
@@ -21,7 +21,8 @@ export class AgendaPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public fireDB: AngularFireDatabase,
-    private menu: MenuController
+    private menu: MenuController,
+    public _chatProvider: ChatProvider
   ) { }
 
   ionViewDidLoad() {
@@ -30,5 +31,7 @@ export class AgendaPage {
     this.day2Observable = this.fireDB.list('/agenda/day2').valueChanges();
     this.day1Observable.subscribe(res => this.day1List = res);
     this.day2Observable.subscribe(res => this.day2List = res);
+
+    this._chatProvider.alertNewMessages();
   }
 }

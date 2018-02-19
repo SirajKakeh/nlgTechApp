@@ -12,9 +12,9 @@ import { ChatProvider } from '../../providers/chat/chat';
 export class UserchatPage {
   @ViewChild('content') content: Content;
   friend: any;
+  picUrl;
   newmessage;
   allmessages = [];
-  photoURL;
   imgornot;
   constructor(
     public navCtrl: NavController,
@@ -24,6 +24,7 @@ export class UserchatPage {
     public zone: NgZone,
     public loadingCtrl: LoadingController) {
     this.friend = this.chatservice.friend;
+    this.picUrl = this.chatservice.picUrl;
     this.scrollto();
     this.events.subscribe('newmessage', () => {
       this.allmessages = [];
@@ -41,10 +42,12 @@ export class UserchatPage {
   }
 
   addmessage() {
-    this.chatservice.addnewmessage(this.newmessage).then(() => {
-      this.content.scrollToBottom();
-      this.newmessage = '';
-    })
+    if (this.newmessage != '') {
+      this.chatservice.addnewmessage(this.newmessage).then(() => {
+        this.content.scrollToBottom();
+        this.newmessage = '';
+      });
+    }
   }
 
   ionViewDidEnter() {

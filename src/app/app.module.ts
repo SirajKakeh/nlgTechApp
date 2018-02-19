@@ -42,6 +42,7 @@ import { EmailComposer } from '@ionic-native/email-composer';
 import { Calendar } from '@ionic-native/calendar';
 import { SpeakersInfoPage } from '../pages/speakers-info/speakers-info'
 import { AppTeamPage } from '../pages/app-team/app-team';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 const IonicPro = Pro.init('ac56531e', {
   appVersion: "0.0.1"
@@ -131,6 +132,7 @@ var firebaseConfig = {
     ChatProvider,
     EmailComposer,
     Calendar,
+    LocalNotifications
   ]
 })
 
