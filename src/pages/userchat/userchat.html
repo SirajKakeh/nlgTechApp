@@ -9,14 +9,14 @@
     <ion-list no-lines>
       <ion-item *ngFor="let item of allmessages; let i = index" text-wrap>
         <ion-avatar item-left *ngIf="item.sentby === friend.uid">
-          <img src="http://lentech.org/images/no_avatar.png">
+          <img src="{{friend.picUrl}}">
         </ion-avatar>
         <div class="bubble me" *ngIf="item.sentby === friend.uid">
           <h3 *ngIf="!imgornot[i]">{{item.message}}</h3>
           <img src="{{item.message}}" *ngIf="imgornot[i]">
         </div>
         <ion-avatar item-right *ngIf="item.sentby != friend.uid">
-          <img src="{{photoURL}}">
+          <img [src]="picUrl">
         </ion-avatar>
         <div class="bubble you" *ngIf="item.sentby != friend.uid">
           <h3 *ngIf="!imgornot[i]">{{item.message}}</h3>
