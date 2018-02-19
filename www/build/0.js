@@ -1,6 +1,6 @@
 webpackJsonp([0],{
 
-/***/ 533:
+/***/ 534:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserchatPageModule", function() { return UserchatPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__userchat__ = __webpack_require__(534);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__userchat__ = __webpack_require__(535);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -41,14 +41,14 @@ var UserchatPageModule = (function () {
 
 /***/ }),
 
-/***/ 534:
+/***/ 535:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserchatPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_chat_chat__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_chat_chat__ = __webpack_require__(94);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -72,6 +72,7 @@ var UserchatPage = (function () {
         this.loadingCtrl = loadingCtrl;
         this.allmessages = [];
         this.friend = this.chatservice.friend;
+        this.picUrl = this.chatservice.picUrl;
         this.scrollto();
         this.events.subscribe('newmessage', function () {
             _this.allmessages = [];
@@ -89,10 +90,12 @@ var UserchatPage = (function () {
     }
     UserchatPage.prototype.addmessage = function () {
         var _this = this;
-        this.chatservice.addnewmessage(this.newmessage).then(function () {
-            _this.content.scrollToBottom();
-            _this.newmessage = '';
-        });
+        if (this.newmessage != '') {
+            this.chatservice.addnewmessage(this.newmessage).then(function () {
+                _this.content.scrollToBottom();
+                _this.newmessage = '';
+            });
+        }
     };
     UserchatPage.prototype.ionViewDidEnter = function () {
         this.chatservice.getmessages();
@@ -109,7 +112,7 @@ var UserchatPage = (function () {
     ], UserchatPage.prototype, "content", void 0);
     UserchatPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-userchat',template:/*ion-inline-start:"/home/siraj/Desktop/web_nlg/src/pages/userchat/userchat.html"*/'<ion-header>\n  <ion-navbar color="nlgen">\n    <ion-title>{{friend.firstName}}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content #content>\n  <div class="chatwindow">\n    <ion-list no-lines>\n      <ion-item *ngFor="let item of allmessages; let i = index" text-wrap>\n        <ion-avatar item-left *ngIf="item.sentby === friend.uid">\n          <img src="http://lentech.org/images/no_avatar.png">\n        </ion-avatar>\n        <div class="bubble me" *ngIf="item.sentby === friend.uid">\n          <h3 *ngIf="!imgornot[i]">{{item.message}}</h3>\n          <img src="{{item.message}}" *ngIf="imgornot[i]">\n        </div>\n        <ion-avatar item-right *ngIf="item.sentby != friend.uid">\n          <img src="{{photoURL}}">\n        </ion-avatar>\n        <div class="bubble you" *ngIf="item.sentby != friend.uid">\n          <h3 *ngIf="!imgornot[i]">{{item.message}}</h3>\n          <img src="{{item.message}}" *ngIf="imgornot[i]">\n        </div>\n      </ion-item>\n    </ion-list>\n  </div>\n</ion-content>\n<ion-footer ion-fixed>\n  <ion-toolbar class="no-border" color="white">\n    <ion-input [(ngModel)]="newmessage" placeholder="Write your message ..."></ion-input>\n    <ion-buttons end>\n      <button ion-button (click)="addmessage()">\n        <ion-icon name="send" color="primary"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-footer>'/*ion-inline-end:"/home/siraj/Desktop/web_nlg/src/pages/userchat/userchat.html"*/,
+            selector: 'page-userchat',template:/*ion-inline-start:"/home/siraj/Desktop/web_nlg/src/pages/userchat/userchat.html"*/'<ion-header>\n  <ion-navbar color="nlgen">\n    <ion-title>{{friend.firstName}}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content #content>\n  <div class="chatwindow">\n    <ion-list no-lines>\n      <ion-item *ngFor="let item of allmessages; let i = index" text-wrap>\n        <ion-avatar item-left *ngIf="item.sentby === friend.uid">\n          <img src="{{friend.picUrl}}">\n        </ion-avatar>\n        <div class="bubble me" *ngIf="item.sentby === friend.uid">\n          <h3 *ngIf="!imgornot[i]">{{item.message}}</h3>\n          <img src="{{item.message}}" *ngIf="imgornot[i]">\n        </div>\n        <ion-avatar item-right *ngIf="item.sentby != friend.uid">\n          <img [src]="picUrl">\n        </ion-avatar>\n        <div class="bubble you" *ngIf="item.sentby != friend.uid">\n          <h3 *ngIf="!imgornot[i]">{{item.message}}</h3>\n          <img src="{{item.message}}" *ngIf="imgornot[i]">\n        </div>\n      </ion-item>\n    </ion-list>\n  </div>\n</ion-content>\n<ion-footer ion-fixed>\n  <ion-toolbar class="no-border" color="white">\n    <ion-input [(ngModel)]="newmessage" placeholder="Write your message ..."></ion-input>\n    <ion-buttons end>\n      <button ion-button (click)="addmessage()">\n        <ion-icon name="send" color="primary"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-footer>'/*ion-inline-end:"/home/siraj/Desktop/web_nlg/src/pages/userchat/userchat.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* NavParams */],
