@@ -16,7 +16,8 @@
     "fetchSpec": ">=0.8.5"
   },
   "_requiredBy": [
-    "#USER"
+    "#USER",
+    "/"
   ],
   "_resolved": "https://registry.npmjs.org/cordova-plugin-badge/-/cordova-plugin-badge-0.8.7.tgz",
   "_shasum": "fe4942aa24af6822da85c01ccce6a831afff5931",

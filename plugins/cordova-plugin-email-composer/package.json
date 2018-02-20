@@ -1,8 +1,8 @@
 {
   "_from": "cordova-plugin-email-composer@^0.8.12",
-  "_id": "cordova-plugin-email-composer@0.8.12",
+  "_id": "cordova-plugin-email-composer@0.8.15",
   "_inBundle": false,
-  "_integrity": "sha512-S87ChIW/aoxZiyylDkUdwUePJyo/aSJd3yDXy1FaTrifVuJ22ldV+K71LcI+vmo27n6LsALD+ZTAUt5PXUCsJQ==",
+  "_integrity": "sha512-DkGnlwGw25JKx/aICZT0X3N/Iew+btB/DLfjgEB2brjkj6N+lcognNPr40eltK7UWur3Ql8V4djm2EAuEbM7NQ==",
   "_location": "/cordova-plugin-email-composer",
   "_phantomChildren": {},
   "_requested": {
@@ -19,10 +19,10 @@
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/cordova-plugin-email-composer/-/cordova-plugin-email-composer-0.8.12.tgz",
-  "_shasum": "d46ec1179af7892214e52f932f8fb4e32fa36810",
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-email-composer/-/cordova-plugin-email-composer-0.8.15.tgz",
+  "_shasum": "d952b5b588996915fb332f7f464812757f170688",
   "_spec": "cordova-plugin-email-composer@^0.8.12",
-  "_where": "/home/siraj/Desktop/nlgTechApp",
+  "_where": "/home/siraj/Desktop/web_nlg",
   "author": {
     "name": "Sebastián Katzer"
   },
@@ -77,5 +77,5 @@
     "type": "git",
     "url": "git+https://github.com/katzer/cordova-plugin-email-composer.git"
   },
-  "version": "0.8.12"
+  "version": "0.8.15"
 }
