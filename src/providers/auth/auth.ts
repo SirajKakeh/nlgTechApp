@@ -17,6 +17,10 @@ export class AuthProvider {
     return this._angularFireAuth.auth.currentUser;
   }
 
+  getCurrentUid() {
+    return this._angularFireAuth.auth.currentUser.uid;
+  }
+
   updateUserInfo(profile, uid) {
     return this._angularFireDatabase.database.ref('users/' + uid).set(profile);
   }
