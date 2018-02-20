@@ -4,7 +4,6 @@ import { UsersProvider } from '../../providers/users/users';
 import { Subscription } from 'rxjs/Subscription';
 import { PersonInfoPage } from '../person-info/person-info';
 
-
 @Component({
   selector: 'page-attendees',
   templateUrl: 'attendees.html',
@@ -20,7 +19,7 @@ export class AttendeesPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private _usersProvider: UsersProvider
+    private _usersProvider: UsersProvider,
   ) {
     this.getUsers();
   }
@@ -52,9 +51,20 @@ export class AttendeesPage {
 
   getUsers() {
     this.usersObservable = this._usersProvider.getAttendees().subscribe(users => {
-      this.users = users;
-      this.filteredUsers = users;
+      this.users = this.sortUsers(users);
+      this.filteredUsers = this.sortUsers(users);
     });
+  }
+
+  sortUsers(users: Array<any>) {
+    function compare(a, b) {
+      if (a.firstName.concat(a.lastName) < b.firstName.concat(b.lastName))
+        return -1;
+      if (a.firstName.concat(a.lastName) > b.firstName.concat(b.lastName))
+        return 1;
+      return 0;
+    }
+    return users.sort(compare);
   }
 
   showPerson(person) {
