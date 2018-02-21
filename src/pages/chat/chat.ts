@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { NavController, NavParams, Events } from 'ionic-angular';
 import { ChatProvider } from '../../providers/chat/chat';
+import { UserchatPage } from '../userchat/userchat'
 
 @Component({
   selector: 'page-chat',
@@ -15,9 +16,16 @@ export class ChatPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public _chatProvider: ChatProvider,
+    public zone: NgZone,
     public events: Events) {
     this.getUsers();
     this.currentUser = this._chatProvider.currentUserId;
+    this.events.subscribe('newmessage_received', () => {
+      this.zone.run(()=>{
+        this.getUsers();
+      })
+
+    });
   }
 
   getUsers() {
@@ -50,6 +58,6 @@ export class ChatPage {
   initChat(person) {
     this._chatProvider.clearNewMsg(person.uid);
     this._chatProvider.initializeChat(person);
-    this.navCtrl.push('UserchatPage');
+    this.navCtrl.push(UserchatPage);
   }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, Events } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { MenuController } from 'ionic-angular/components/app/menu-controller';
 import { ChatProvider } from '../../providers/chat/chat';
@@ -17,14 +17,24 @@ export class AgendaPage {
   day1 = "day1";
   day2 = "day2";
   day = this.day1;
+  newMsg;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public fireDB: AngularFireDatabase,
     private menu: MenuController,
-    public _chatProvider: ChatProvider
-  ) { }
+    public _chatProvider: ChatProvider,
+    public events: Events    
+  ) { 
+    this.events.subscribe('newmessage_received', () => {
+      this.newMsg = true;
+    });
+  }
 
+  clearNotification(){
+    this.newMsg = false;
+  }
+  
   ionViewDidLoad() {
     this.menu.enable(true, "menu");
     this.day1Observable = this.fireDB.list('/agenda/day1').valueChanges();
