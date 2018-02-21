@@ -14,13 +14,16 @@
         <div class="bubble me" *ngIf="item.sentby === friend.uid">
           <h3 *ngIf="!imgornot[i]">{{item.message}}</h3>
           <img src="{{item.message}}" *ngIf="imgornot[i]">
+          <div style="color: #797979;font-size: 0.9em;margin-top: 0.5em;">{{item.timestamp | date: 'd MMM H:mm'}}</div>
         </div>
+
         <ion-avatar item-right *ngIf="item.sentby != friend.uid">
           <img [src]="picUrl">
         </ion-avatar>
         <div class="bubble you" *ngIf="item.sentby != friend.uid">
           <h3 *ngIf="!imgornot[i]">{{item.message}}</h3>
           <img src="{{item.message}}" *ngIf="imgornot[i]">
+          <div style="color: #797979;font-size: 0.9em;direction: rtl;margin-top: 0.5em;">{{item.timestamp | date: 'd MMM H:mm'}}</div>
         </div>
       </ion-item>
     </ion-list>

@@ -48,6 +48,7 @@
           <ion-icon name="chatbubbles" style="width:25px; font-size: 25px;"></ion-icon>
           Chats
         </h2>
+         <span *ngIf="newMsg" style="position:absolute;top: 25%;right: 4%;height: 3em;width: 3em;text-align: center;font-size: 0.6em;color: #fff;font-style: italic;background-color: #ff5757;border-radius: 50%;line-height: 3;">New</span>
       </button>
 
       <button style="background-color:#00bfbb" ion-item (click)='sponsor()'>
