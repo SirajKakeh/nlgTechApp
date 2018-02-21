@@ -24,17 +24,17 @@ export class AgendaPage {
     public fireDB: AngularFireDatabase,
     private menu: MenuController,
     public _chatProvider: ChatProvider,
-    public events: Events    
-  ) { 
+    public events: Events
+  ) {
     this.events.subscribe('newmessage_received', () => {
       this.newMsg = true;
     });
   }
 
-  clearNotification(){
+  clearNotification() {
     this.newMsg = false;
   }
-  
+
   ionViewDidLoad() {
     this.menu.enable(true, "menu");
     this.day1Observable = this.fireDB.list('/agenda/day1').valueChanges();

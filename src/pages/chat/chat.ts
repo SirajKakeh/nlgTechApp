@@ -21,7 +21,7 @@ export class ChatPage {
     this.getUsers();
     this.currentUser = this._chatProvider.currentUserId;
     this.events.subscribe('newmessage_received', () => {
-      this.zone.run(()=>{
+      this.zone.run(() => {
         this.getUsers();
       })
 
@@ -30,19 +30,19 @@ export class ChatPage {
 
   getUsers() {
     this.searchResults = this.users = this._chatProvider.users;
-    this.users.sort((a, b)=>{
+    this.users.sort((a, b) => {
       if (a.lastMessage > b.lastMessage)
         return -1;
       if (a.lastMessage < b.lastMessage)
         return 1;
-      return 0;    
+      return 0;
     })
   }
 
   findUsers(ev) {
     this.searchPhrase = ev.target.value;
     var query = ev.target.value ? ev.target.value.toLowerCase() : '';
-    var keys = ['firstName', 'lastName'];    
+    var keys = ['firstName', 'lastName'];
 
     if (query && query.trim() != '') {
       this.users = this.searchResults.filter((item) => {
@@ -52,7 +52,7 @@ export class ChatPage {
     } else {
       this.getUsers();
     }
-    this.noMatch = this.users.length == 0 && query;    
+    this.noMatch = this.users.length == 0 && query;
   }
 
   initChat(person) {
