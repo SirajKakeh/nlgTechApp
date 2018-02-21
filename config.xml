@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="15" id="com.rbk.nlg" version="0.1.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="16" id="com.rbk.nlg" version="0.1.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>NLG Tech App</name>
     <description>A networking app for NLG Tech Summit 2018</description>
     <author email="sirajkakeh@gmail.com" href="http://www.rbk.org/">RBK Team</author>
