@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, Nav, MenuController } from 'ionic-angular';
+import { Platform, Nav, MenuController, Events } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -31,6 +31,7 @@ export class MyApp {
   userEmail;
   usersin;
   profilePicURL;
+  newMsg;
   constructor(
     private platform: Platform,
     private statusBar: StatusBar,
@@ -38,11 +39,15 @@ export class MyApp {
     private menu: MenuController,
     private _authProvider: AuthProvider,
     public fireDB: AngularFireDatabase,
-    public _camProvider: CamProvider
+    public _camProvider: CamProvider,
+    public events: Events
   ) {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+    });
+    this.events.subscribe('newmessage_received', () => {
+      this.newMsg = true;
     });
   }
 
@@ -57,6 +62,7 @@ export class MyApp {
   chat() {
     this.menu.close();
     this.nav.push(ChatPage);
+    this.newMsg = false;
   }
   about() {
     this.menu.close();
