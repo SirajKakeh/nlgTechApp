@@ -18,6 +18,7 @@ import { SigninPage } from "../pages/signin/signin";
 import { AgendaPage } from '../pages/agenda/agenda';
 import { AboutPage } from '../pages/about/about';
 import { ChatPage } from '../pages/chat/chat';
+import { UserchatPage } from '../pages/userchat/userchat';
 import { SpeakersPage } from '../pages/speakers/speakers';
 import { SponsorPage } from '../pages/sponsor/sponsor';
 import { Pro } from '@ionic/pro';
@@ -78,6 +79,7 @@ var firebaseConfig = {
     ExhibitorsPage,
     ExhibitorsInfoPage,
     ChatPage,
+    UserchatPage,
     ReportUserPage,
     PinCodePage,
     SpeakersInfoPage,
@@ -106,6 +108,7 @@ var firebaseConfig = {
     PersonalProfViewPage,
     AttendeesPage,
     PersonInfoPage,
+    UserchatPage,
     ResetPasswordPage,
     RegProfilePage,
     UpdateProfilePage,

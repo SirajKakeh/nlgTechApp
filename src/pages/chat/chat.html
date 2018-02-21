@@ -7,12 +7,14 @@
 <ion-content class="list-avatar-page">
   <ion-searchbar (ionInput)="findUsers($event)"></ion-searchbar>
   <ion-list no-lines>
-    <ion-item *ngFor="let user of users" (click)="initChat(user)">
+  	<ion-row *ngIf="noMatch" justify-content-center>No results found for '{{searchPhrase}}'</ion-row>
+    <ion-item *ngFor="let user of users" (click)="initChat(user)" [id]="user.uid">
 	  <ion-avatar item-start>
 	    <img [src]="user.picUrl">
 	  </ion-avatar>
-	  <h2>{{user.firstName + ' ' + user.lastName}}</h2>
-	  <p>{{user.position}}</p>
+	  <h2 >{{user.firstName + ' ' + user.lastName}}</h2>
+	  <span *ngIf="user.newmsg" style="position:absolute;top: 35%;right: 4%;height: 3em;width: 3em;text-align: center;font-size: 0.6em;color: #fff;font-style: italic;background-color: #ff5757;border-radius: 50%;line-height: 3;">New</span>
+	  <p style="width:75%;">{{user.position}}</p>
     </ion-item>
   </ion-list>
 </ion-content>

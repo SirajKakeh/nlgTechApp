@@ -2,8 +2,6 @@ import { Component, ViewChild, NgZone } from '@angular/core';
 import { IonicPage, NavController, NavParams, Events, Content, LoadingController } from 'ionic-angular';
 import { ChatProvider } from '../../providers/chat/chat';
 
-@IonicPage()
-
 @Component({
   selector: 'page-userchat',
   templateUrl: 'userchat.html',

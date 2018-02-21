@@ -1,8 +1,9 @@
 <ion-header>
   <ion-navbar color="nlgen">
     <ion-title>Agenda</ion-title>
-    <button ion-button menuToggle>
+    <button ion-button menuToggle (click)="clearNotification()">
       <ion-icon name="menu"></ion-icon>
+      <span *ngIf="newMsg" style="background-color: red;width: 0.5em;height: 0.5em;border-radius: 50%;position: absolute;bottom: 20%;right: 26%;"></span>
     </button>
   </ion-navbar>
 </ion-header>
