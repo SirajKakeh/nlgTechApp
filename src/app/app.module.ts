@@ -9,7 +9,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 
-import {MapPage} from '../pages/map/map'
+import { MapPage } from '../pages/map/map'
 import { MyApp } from './app.component';
 import { SplashScreenPage } from '../pages/splash-screen/splash-screen';
 import { PinCodePage } from "../pages/pin-code/pin-code";
@@ -28,17 +28,17 @@ import { UsersProvider } from '../providers/users/users';
 import { PersonInfoPage } from '../pages/person-info/person-info';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { AuthData } from '../providers/auth-data/auth-data';
-import { PincodeInputModule } from  'ionic2-pincode-input';
+import { PincodeInputModule } from 'ionic2-pincode-input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegProfilePage } from '../pages/reg-profile/reg-profile';
 import { PersonalProfViewPage } from "../pages/personal-prof-view/personal-prof-view";
 import { UpdateProfilePage } from '../pages/update-profile/update-profile';
 import { CamProvider } from '../providers/cam/cam';
 import { Camera } from '@ionic-native/camera';
-import {ExhibitorsPage} from '../pages/exhibitors/exhibitors';
-import  { ExhibitorsInfoPage } from '../pages/exhibitors-info/exhibitors-info';
+import { ExhibitorsPage } from '../pages/exhibitors/exhibitors';
+import { ExhibitorsInfoPage } from '../pages/exhibitors-info/exhibitors-info';
 import { ChatProvider } from '../providers/chat/chat';
-import { ReportUserPage } from'../pages/report-user/report-user';
+import { ReportUserPage } from '../pages/report-user/report-user';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { Calendar } from '@ionic-native/calendar';
 import { SpeakersInfoPage } from '../pages/speakers-info/speakers-info'
@@ -128,7 +128,7 @@ var firebaseConfig = {
     UsersProvider,
     AuthProvider,
     AngularFireDatabase,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthData,
     CamProvider,
     Camera,
@@ -139,4 +139,4 @@ var firebaseConfig = {
   ]
 })
 
-export class AppModule {}
+export class AppModule { }
